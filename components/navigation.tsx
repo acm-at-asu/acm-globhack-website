@@ -11,7 +11,6 @@ const navItems = [
   { href: "/logistics", label: "Logistics" },
   { href: "/tracks", label: "Tracks" },
   { href: "/faq", label: "FAQ" },
-  { href: "/sponsors", label: "Sponsors" },
 ]
 
 export function Navigation() {

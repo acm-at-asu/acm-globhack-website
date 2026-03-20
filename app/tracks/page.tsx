@@ -23,7 +23,7 @@ const tracks = [
     title: "AI & Machine Learning",
     icon: Brain,
     color: "cyan",
-    prize: "$500",
+    badge: "Open",
     description: "Build intelligent solutions powered by artificial intelligence and machine learning. Create apps that learn, predict, and automate using cutting-edge AI technologies.",
     examples: [
       "Natural language processing tools",
@@ -38,7 +38,7 @@ const tracks = [
     title: "Social Impact",
     icon: Heart,
     color: "magenta",
-    prize: "$500",
+    badge: "Open",
     description: "Create technology that makes a positive difference in communities and addresses real-world social challenges. Focus on accessibility, sustainability, or community building.",
     examples: [
       "Accessibility tools",
@@ -53,7 +53,7 @@ const tracks = [
     title: "Best UI/UX Design",
     icon: Palette,
     color: "gold",
-    prize: "$500",
+    badge: "Open",
     description: "Showcase exceptional user interface design and user experience. Demonstrate mastery of design principles, accessibility, and creating delightful user interactions.",
     examples: [
       "Beautifully crafted interfaces",
@@ -68,7 +68,7 @@ const tracks = [
     title: "Most Innovative",
     icon: Lightbulb,
     color: "blue",
-    prize: "$500",
+    badge: "Open",
     description: "Think outside the box and build something truly unique. This track rewards creative problem-solving and novel approaches to challenges.",
     examples: [
       "Unique technology combinations",
@@ -83,7 +83,7 @@ const tracks = [
     title: "Best First-Time Hackers",
     icon: GraduationCap,
     color: "cyan",
-    prize: "$500",
+    badge: "Open",
     description: "New to hackathons? This track celebrates teams where all members are participating in their first hackathon. Show us what fresh perspectives can achieve!",
     examples: [
       "Any project from first-time teams",
@@ -98,7 +98,7 @@ const tracks = [
     title: "Secret Track",
     icon: Lock,
     color: "muted-foreground",
-    prize: "???",
+    badge: "TBA",
     description: "A mystery track that will be revealed during the opening ceremony. Stay tuned for an exciting surprise challenge!",
     examples: ["???", "???", "???", "???"],
     revealed: false,
@@ -129,7 +129,7 @@ export default function TracksPage() {
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Choose a track that matches your interests and skills. Each track has its own 
-            $500 prize, and you can compete in multiple tracks with a single project!
+            judging focus, and you can compete in multiple tracks with a single project.
           </p>
         </div>
       </section>
@@ -147,7 +147,7 @@ export default function TracksPage() {
                     : "border-dashed opacity-70"
                 }`}
               >
-                {/* Prize badge */}
+                {/* Track status badge */}
                 <div 
                   className="absolute top-6 right-6 px-4 py-1.5 rounded-full text-xs font-bold"
                   style={{ 
@@ -158,7 +158,7 @@ export default function TracksPage() {
                     border: track.revealed ? `1px solid color-mix(in srgb, var(--${track.color}) 30%, transparent)` : "1px solid var(--border)",
                   }}
                 >
-                  {track.prize}
+                  {track.badge}
                 </div>
 
                 {/* Icon */}

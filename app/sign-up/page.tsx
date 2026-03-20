@@ -4,7 +4,7 @@ import { SignUp } from '@clerk/nextjs'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import Link from 'next/link'
-import { ArrowLeft, Zap, Users, Globe, Trophy } from 'lucide-react'
+import { ArrowLeft, Zap, Users, Globe, Sparkles } from 'lucide-react'
 
 export default function SignUpPage() {
   return (
@@ -69,9 +69,9 @@ export default function SignUpPage() {
                         color: "magenta",
                       },
                       {
-                        icon: Trophy,
-                        title: "Win Prizes",
-                        description: "Compete for $10,000+ in prizes and awards",
+                        icon: Sparkles,
+                        title: "Get Recognized",
+                        description: "Showcase your work to mentors, judges, and the broader community",
                         color: "gold",
                       },
                     ].map((item, index) => (
@@ -104,7 +104,7 @@ export default function SignUpPage() {
                       { value: "April 18-19", label: "2026", color: "cyan" },
                       { value: "24 Hours", label: "of Hacking", color: "blue" },
                       { value: "150+", label: "Participants", color: "gold" },
-                      { value: "$10K+", label: "in Prizes", color: "magenta" },
+                      { value: "5", label: "Tracks", color: "magenta" },
                     ].map((stat, index) => (
                       <div key={index}>
                         <p 

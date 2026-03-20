@@ -75,7 +75,7 @@ const faqs = [
     ],
   },
   {
-    category: "Judging & Prizes",
+    category: "Judging",
     color: "magenta",
     questions: [
       {
@@ -83,12 +83,8 @@ const faqs = [
         a: "Projects are evaluated on innovation, technical complexity, design and user experience, market viability (our go-to-market focus!), and presentation quality. Judges include industry professionals, investors, and experienced entrepreneurs.",
       },
       {
-        q: "What prizes are available?",
-        a: "We're giving away over $10,000 in prizes! First place wins $5,000, second place wins $3,000, and third place wins $1,500. We also have $500 track prizes for categories like Best AI/ML Project, Best Social Impact, Best UI/UX Design, and more.",
-      },
-      {
         q: "Do I need to present my project?",
-        a: "All teams submit their projects before the deadline. The top 12-15 teams are selected to give 5-minute presentations followed by 3-minute Q&A sessions with judges. Even if you're not in the finals, your project will still be considered for track prizes.",
+        a: "All teams submit their projects before the deadline. The top 12-15 teams are selected to give 5-minute presentations followed by 3-minute Q&A sessions with judges.",
       },
     ],
   },

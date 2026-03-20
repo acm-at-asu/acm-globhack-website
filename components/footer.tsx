@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Agenda", href: "/agenda" },
-                { label: "Logistics & Prizes", href: "/logistics" },
+                { label: "Logistics", href: "/logistics" },
                 { label: "Tracks", href: "/tracks" },
                 { label: "FAQ", href: "/faq" },
               ].map((link) => (
@@ -68,7 +68,6 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-foreground mb-4">Resources</h3>
             <ul className="space-y-3">
               {[
-                { label: "Sponsors", href: "/sponsors" },
                 { label: "Discord Community", href: "https://discord.gg/PA3XaxjxVH", external: true },
                 { label: "Register", href: "/sign-up" },
               ].map((link) => (
