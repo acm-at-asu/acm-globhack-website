@@ -1,13 +1,10 @@
 'use client'
 
-import { useId, useState } from 'react'
+import { FormEvent, useId, useState } from 'react'
 import {
   FileText,
   Upload,
-  UtensilsCrossed,
-  UserRound,
   UsersRound,
-  WandSparkles,
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -39,14 +36,9 @@ const teamOptions = [
     value: 'solo',
   },
   {
-    description: 'Find an existing team to join',
-    label: 'Join Team',
-    value: 'join',
-  },
-  {
-    description: 'Start your own team and lead it',
-    label: 'Create Team',
-    value: 'create',
+    description: 'Get matched with or find an existing team',
+    label: 'Finding a Team',
+    value: 'finding-team',
   },
 ]
 
@@ -60,11 +52,88 @@ export function RegistrationApplicationForm({
   authenticated,
 }: RegistrationApplicationFormProps) {
   const resumeInputId = useId()
+  const [major, setMajor] = useState('')
+  const [tShirtSize, setTShirtSize] = useState('')
   const [teamPreference, setTeamPreference] = useState('solo')
   const [dietaryPreference, setDietaryPreference] = useState('')
+  const [dietaryOther, setDietaryOther] = useState('')
+  const [motivation, setMotivation] = useState('')
+  const [resumeFile, setResumeFile] = useState<File | null>(null)
   const [resumeName, setResumeName] = useState('')
   const [resumeError, setResumeError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [status, setStatus] = useState('')
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    if (resumeError) {
+      setStatus(resumeError)
+      return
+    }
+
+    if (!authenticated) {
+      setStatus('Sign in with WorkOS above before submitting your registration.')
+      return
+    }
+
+    if (!major.trim() || !tShirtSize || !dietaryPreference || !motivation.trim() || !teamPreference) {
+      setStatus('Please complete all required fields before submitting.')
+      return
+    }
+
+    if (dietaryPreference === 'Other' && !dietaryOther.trim()) {
+      setStatus('Please specify your dietary preference.')
+      return
+    }
+
+    if (!resumeFile) {
+      setStatus('Please upload your resume before submitting.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setStatus('')
+
+    try {
+      const formData = new FormData()
+      formData.set('major', major.trim())
+      formData.set('tshirtSize', tShirtSize)
+      formData.set('dietaryPreference', dietaryPreference)
+      formData.set('motivation', motivation.trim())
+      formData.set('teamPreference', teamPreference)
+      formData.set('resume', resumeFile)
+
+      if (dietaryPreference === 'Other') {
+        formData.set('dietaryOther', dietaryOther.trim())
+      }
+
+      const response = await fetch('/api/applications', {
+        body: formData,
+        method: 'POST',
+      })
+
+      const payload = (await response.json().catch(() => null)) as
+        | { error?: string; message?: string }
+        | null
+
+      if (!response.ok) {
+        setStatus(payload?.error || 'Failed to save your application.')
+        return
+      }
+
+      setStatus(
+        payload?.message ||
+          (attendeeEmail
+            ? `You have submitted the application for ${attendeeEmail}.`
+            : 'You have submitted the application.'),
+      )
+    } catch {
+      setStatus('Something went wrong while saving your application.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <div className="space-y-8">
@@ -93,25 +162,7 @@ export function RegistrationApplicationForm({
 
       <form
         className="rounded-[2rem] border border-dashed border-[color:rgba(116,147,225,0.35)] bg-[radial-gradient(circle_at_top,rgba(18,30,58,0.25),rgba(4,5,8,0.96)_55%)] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:p-10"
-        onSubmit={(event) => {
-          event.preventDefault()
-
-          if (resumeError) {
-            setStatus(resumeError)
-            return
-          }
-
-          if (!authenticated) {
-            setStatus('Sign in with WorkOS above before submitting your registration.')
-            return
-          }
-
-          setStatus(
-            attendeeEmail
-              ? `Registration draft is ready for ${attendeeEmail}. Connect this submit handler to your backend to persist the application.`
-              : 'Registration draft is ready. Connect this submit handler to your backend to persist the application.',
-          )
-        }}
+        onSubmit={handleSubmit}
       >
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-3">
@@ -121,19 +172,22 @@ export function RegistrationApplicationForm({
             <Input
               className="h-14 rounded-2xl border-dashed border-[color:rgba(134,163,233,0.45)] bg-[rgba(11,18,34,0.8)] px-5 text-base text-white placeholder:text-zinc-500"
               id="major"
+              name="major"
+              onChange={(event) => setMajor(event.target.value)}
               placeholder="e.g., Computer Science, Engineering, Business"
               required
+              value={major}
             />
           </div>
 
           <div className="space-y-3">
             <label className="text-lg font-semibold text-white">T-Shirt Size *</label>
-            <Select required>
+            <Select onValueChange={setTShirtSize} required value={tShirtSize}>
               <SelectTrigger className="h-14 w-full rounded-2xl border-dashed border-[color:rgba(134,163,233,0.45)] bg-[rgba(11,18,34,0.8)] px-5 text-base text-white">
                 <SelectValue placeholder="Select size" />
               </SelectTrigger>
               <SelectContent className="border-white/10 bg-[#0E1320] text-white">
-                {['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((size) => (
+                {['M', 'L', 'XL'].map((size) => (
                   <SelectItem key={size} value={size}>
                     {size}
                   </SelectItem>
@@ -166,8 +220,11 @@ export function RegistrationApplicationForm({
           {dietaryPreference === 'Other' ? (
             <Input
               className="h-14 rounded-2xl border-dashed border-[color:rgba(134,163,233,0.45)] bg-[rgba(11,18,34,0.8)] px-5 text-base text-white placeholder:text-zinc-500"
+              name="dietaryOther"
+              onChange={(event) => setDietaryOther(event.target.value)}
               placeholder="Please specify your dietary preference"
               required
+              value={dietaryOther}
             />
           ) : null}
         </div>
@@ -194,23 +251,27 @@ export function RegistrationApplicationForm({
 
                 if (!file) {
                   setResumeError('')
+                  setResumeFile(null)
                   setResumeName('')
                   return
                 }
 
                 if (file.type !== 'application/pdf') {
                   setResumeError('Please upload a PDF resume.')
+                  setResumeFile(null)
                   setResumeName(file.name)
                   return
                 }
 
                 if (file.size > 1024 * 1024) {
                   setResumeError('Resume files must be 1MB or smaller.')
+                  setResumeFile(null)
                   setResumeName(file.name)
                   return
                 }
 
                 setResumeError('')
+                setResumeFile(file)
                 setResumeName(file.name)
               }}
               required
@@ -227,8 +288,11 @@ export function RegistrationApplicationForm({
           <Textarea
             className="min-h-40 rounded-[1.75rem] border-dashed border-[color:rgba(134,163,233,0.45)] bg-[rgba(11,18,34,0.8)] px-5 py-4 text-base text-white placeholder:text-zinc-500"
             id="motivation"
+            name="motivation"
+            onChange={(event) => setMotivation(event.target.value)}
             placeholder="Tell us about your passion for technology, what you hope to learn, or the impact you want to make..."
             required
+            value={motivation}
           />
         </div>
 
@@ -242,7 +306,7 @@ export function RegistrationApplicationForm({
           <div className="mt-7 space-y-4">
             <p className="text-lg font-semibold text-white">How would you like to participate? *</p>
             <RadioGroup
-              className="grid gap-4 lg:grid-cols-3"
+              className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2"
               onValueChange={setTeamPreference}
               value={teamPreference}
             >
@@ -268,39 +332,13 @@ export function RegistrationApplicationForm({
             </RadioGroup>
           </div>
         </div>
-
-        <div className="mt-10 grid gap-4 rounded-[1.75rem] border border-white/8 bg-white/[0.02] p-5 md:grid-cols-3">
-          {[
-            {
-              icon: UserRound,
-              label: 'Academic profile',
-              value: 'Major, class year, and skill background',
-            },
-            {
-              icon: UtensilsCrossed,
-              label: 'Event comfort',
-              value: 'Food preferences and T-shirt sizing',
-            },
-            {
-              icon: WandSparkles,
-              label: 'Application story',
-              value: 'Motivation and team formation preference',
-            },
-          ].map((item) => (
-            <div key={item.label} className="rounded-2xl border border-white/8 bg-black/20 p-4">
-              <item.icon className="h-6 w-6 text-[var(--cyan)]" />
-              <p className="mt-3 text-sm uppercase tracking-[0.24em] text-zinc-500">{item.label}</p>
-              <p className="mt-2 text-base text-zinc-200">{item.value}</p>
-            </div>
-          ))}
-        </div>
-
         <Button
           className="mt-8 h-14 w-full rounded-2xl border border-dashed border-[color:rgba(255,153,72,0.55)] bg-transparent text-lg font-semibold text-[var(--gold)] hover:bg-[rgba(255,153,72,0.08)]"
+          disabled={isSubmitting}
           type="submit"
           variant="outline"
         >
-          Submit Application
+          {isSubmitting ? 'Saving Application...' : 'Submit Application'}
         </Button>
 
         {status ? (
