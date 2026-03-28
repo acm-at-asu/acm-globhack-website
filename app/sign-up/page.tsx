@@ -79,7 +79,6 @@ export default async function SignUpPage() {
                 <div className="space-y-6">
                   <WorkOSEntryCard
                     actionPath="/register"
-                    disabled={!isWorkOSConfigured}
                     footerHref="/sign-in"
                     footerLinkLabel="Sign in"
                     footerText="Already have an account?"

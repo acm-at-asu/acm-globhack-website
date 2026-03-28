@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils'
 
 type WorkOSEntryCardProps = {
   actionPath: '/login' | '/register'
-  disabled?: boolean
   footerHref: string
   footerLinkLabel: string
   footerText: string
@@ -52,7 +51,6 @@ function GitHubIcon() {
 
 export function WorkOSEntryCard({
   actionPath,
-  disabled = false,
   footerHref,
   footerLinkLabel,
   footerText,
@@ -77,11 +75,6 @@ export function WorkOSEntryCard({
           action={actionPath}
           className="space-y-5"
           method="GET"
-          onSubmit={(event) => {
-            if (disabled) {
-              event.preventDefault()
-            }
-          }}
         >
           <div className="space-y-3">
             <label className="text-left text-lg font-semibold text-white" htmlFor={`${mode}-email`}>
@@ -91,7 +84,6 @@ export function WorkOSEntryCard({
               <Input
                 className={cn(
                   'h-16 rounded-2xl border border-[#6B5ED7] bg-[#171717] pl-6 pr-16 text-lg text-white placeholder:text-zinc-500 focus-visible:border-[#8A7CFF] focus-visible:ring-[#8A7CFF]/35',
-                  disabled && 'opacity-60',
                 )}
                 id={`${mode}-email`}
                 name="email"
@@ -110,7 +102,6 @@ export function WorkOSEntryCard({
 
           <Button
             className="h-14 w-full rounded-2xl bg-white text-xl font-semibold text-black hover:bg-white/90"
-            disabled={disabled}
             type="submit"
           >
             Continue
@@ -125,39 +116,25 @@ export function WorkOSEntryCard({
 
         <div className="space-y-4">
           <Button
-            asChild={!disabled}
+            asChild
             className="h-14 w-full justify-center rounded-2xl border border-white/18 bg-transparent text-lg text-zinc-100 hover:bg-white/6"
             variant="outline"
           >
-            {disabled ? (
-              <span>
-                <GoogleIcon />
-                Continue with Google
-              </span>
-            ) : (
-              <a href={actionPath}>
-                <GoogleIcon />
-                Continue with Google
-              </a>
-            )}
+            <a href={actionPath}>
+              <GoogleIcon />
+              Continue with Google
+            </a>
           </Button>
 
           <Button
-            asChild={!disabled}
+            asChild
             className="h-14 w-full justify-center rounded-2xl border border-white/18 bg-transparent text-lg text-zinc-100 hover:bg-white/6"
             variant="outline"
           >
-            {disabled ? (
-              <span>
-                <GitHubIcon />
-                Continue with GitHub
-              </span>
-            ) : (
-              <a href={actionPath}>
-                <GitHubIcon />
-                Continue with GitHub
-              </a>
-            )}
+            <a href={actionPath}>
+              <GitHubIcon />
+              Continue with GitHub
+            </a>
           </Button>
         </div>
 

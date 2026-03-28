@@ -75,7 +75,6 @@ export default async function SignInPage() {
             ) : (
               <WorkOSEntryCard
                 actionPath="/login"
-                disabled={!isWorkOSConfigured}
                 footerHref="/sign-up"
                 footerLinkLabel="Sign up"
                 footerText="Don't have an account?"
