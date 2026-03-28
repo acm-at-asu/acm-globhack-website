@@ -22,7 +22,9 @@ const tracks = [
     id: "ai-ml",
     title: "AI & Machine Learning",
     icon: Brain,
-    color: "cyan",
+    gradient: "from-cyan-500 to-blue-500",
+    glowColor: "rgba(34, 211, 238, 0.3)",
+    textColor: "text-cyan-400",
     badge: "Open",
     description: "Build intelligent solutions powered by artificial intelligence and machine learning. Create apps that learn, predict, and automate using cutting-edge AI technologies.",
     examples: [
@@ -37,7 +39,9 @@ const tracks = [
     id: "social-impact",
     title: "Social Impact",
     icon: Heart,
-    color: "magenta",
+    gradient: "from-pink-500 to-rose-500",
+    glowColor: "rgba(236, 72, 153, 0.3)",
+    textColor: "text-pink-400",
     badge: "Open",
     description: "Create technology that makes a positive difference in communities and addresses real-world social challenges. Focus on accessibility, sustainability, or community building.",
     examples: [
@@ -52,7 +56,9 @@ const tracks = [
     id: "ui-ux",
     title: "Best UI/UX Design",
     icon: Palette,
-    color: "gold",
+    gradient: "from-amber-500 to-yellow-500",
+    glowColor: "rgba(250, 204, 21, 0.3)",
+    textColor: "text-amber-400",
     badge: "Open",
     description: "Showcase exceptional user interface design and user experience. Demonstrate mastery of design principles, accessibility, and creating delightful user interactions.",
     examples: [
@@ -67,7 +73,9 @@ const tracks = [
     id: "innovation",
     title: "Most Innovative",
     icon: Lightbulb,
-    color: "blue",
+    gradient: "from-blue-500 to-indigo-500",
+    glowColor: "rgba(59, 130, 246, 0.3)",
+    textColor: "text-blue-400",
     badge: "Open",
     description: "Think outside the box and build something truly unique. This track rewards creative problem-solving and novel approaches to challenges.",
     examples: [
@@ -82,7 +90,9 @@ const tracks = [
     id: "first-time",
     title: "Best First-Time Hackers",
     icon: GraduationCap,
-    color: "cyan",
+    gradient: "from-teal-500 to-cyan-500",
+    glowColor: "rgba(20, 184, 166, 0.3)",
+    textColor: "text-teal-400",
     badge: "Open",
     description: "New to hackathons? This track celebrates teams where all members are participating in their first hackathon. Show us what fresh perspectives can achieve!",
     examples: [
@@ -97,7 +107,9 @@ const tracks = [
     id: "secret",
     title: "Secret Track",
     icon: Lock,
-    color: "muted-foreground",
+    gradient: "from-gray-500 to-gray-600",
+    glowColor: "rgba(107, 114, 128, 0.2)",
+    textColor: "text-gray-400",
     badge: "TBA",
     description: "A mystery track that will be revealed during the opening ceremony. Stay tuned for an exciting surprise challenge!",
     examples: ["???", "???", "???", "???"],
@@ -116,11 +128,12 @@ export default function TracksPage() {
           <div className="absolute inset-0 noise-overlay" />
           <div className="orb orb-blue w-[400px] h-[400px] top-20 -left-20" />
           <div className="orb orb-cyan w-[300px] h-[300px] top-40 -right-20" />
+          <div className="orb orb-red w-[250px] h-[250px] bottom-20 left-1/2" />
           <div className="grid-overlay" />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-[var(--blue)] uppercase tracking-widest mb-4">
+          <p className="text-sm font-medium text-blue-400 uppercase tracking-widest mb-4">
             Choose Your Challenge
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
@@ -141,21 +154,33 @@ export default function TracksPage() {
             {tracks.map((track) => (
               <div 
                 key={track.id}
-                className={`group relative glass-card rounded-2xl p-8 transition-all duration-500 ${
+                className={`group relative glass-card rounded-2xl p-8 transition-all duration-500 overflow-hidden ${
                   track.revealed 
                     ? "glass-card-hover" 
                     : "border-dashed opacity-70"
                 }`}
               >
+                {/* Glow effect on hover */}
+                {track.revealed && (
+                  <div 
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle at 50% 0%, ${track.glowColor}, transparent 60%)`,
+                    }}
+                  />
+                )}
+
                 {/* Track status badge */}
                 <div 
-                  className="absolute top-6 right-6 px-4 py-1.5 rounded-full text-xs font-bold"
+                  className={`absolute top-6 right-6 px-4 py-1.5 rounded-full text-xs font-bold ${
+                    track.revealed 
+                      ? `bg-gradient-to-r ${track.gradient} bg-opacity-20 ${track.textColor}` 
+                      : "bg-secondary text-muted-foreground"
+                  }`}
                   style={{ 
                     background: track.revealed 
-                      ? `linear-gradient(135deg, color-mix(in srgb, var(--${track.color}) 20%, transparent), transparent)`
-                      : "var(--secondary)",
-                    color: track.revealed ? `var(--${track.color})` : "var(--muted-foreground)",
-                    border: track.revealed ? `1px solid color-mix(in srgb, var(--${track.color}) 30%, transparent)` : "1px solid var(--border)",
+                      ? `linear-gradient(135deg, ${track.glowColor}, transparent)`
+                      : undefined,
                   }}
                 >
                   {track.badge}
@@ -163,27 +188,23 @@ export default function TracksPage() {
 
                 {/* Icon */}
                 <div 
-                  className={`w-16 h-16 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 ${
+                  className={`relative w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 bg-gradient-to-br ${track.gradient} ${
                     !track.revealed && "animate-pulse"
                   }`}
-                  style={{ 
-                    background: `linear-gradient(135deg, color-mix(in srgb, var(--${track.color}) 20%, transparent), transparent)`,
-                    border: `1px solid color-mix(in srgb, var(--${track.color}) 30%, transparent)`,
+                  style={{
+                    boxShadow: `0 8px 32px ${track.glowColor}`,
                   }}
                 >
-                  <track.icon 
-                    className="h-8 w-8" 
-                    style={{ color: `var(--${track.color})` }}
-                  />
+                  <track.icon className="h-8 w-8 text-white" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-semibold text-foreground mb-3">
+                <h3 className="relative text-xl font-semibold text-foreground mb-3">
                   {track.title}
                 </h3>
 
                 {/* Description */}
-                <p className={`text-sm leading-relaxed mb-6 ${
+                <p className={`relative text-sm leading-relaxed mb-6 ${
                   track.revealed ? "text-muted-foreground" : "text-muted-foreground/50 italic"
                 }`}>
                   {track.description}
@@ -191,7 +212,7 @@ export default function TracksPage() {
 
                 {/* Examples */}
                 {track.revealed && (
-                  <div className="space-y-3">
+                  <div className="relative space-y-3">
                     <p className="text-xs font-semibold text-foreground uppercase tracking-wider">
                       Example Projects:
                     </p>
@@ -199,8 +220,7 @@ export default function TracksPage() {
                       {track.examples.map((example, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <span 
-                            className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
-                            style={{ backgroundColor: `var(--${track.color})` }}
+                            className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 bg-gradient-to-r ${track.gradient}`}
                           />
                           {example}
                         </li>
@@ -211,7 +231,7 @@ export default function TracksPage() {
 
                 {/* Unrevealed overlay */}
                 {!track.revealed && (
-                  <div className="absolute inset-0 bg-background/60 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                  <div className="absolute inset-0 glass-panel rounded-2xl flex items-center justify-center">
                     <div className="text-center p-6">
                       <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mx-auto mb-4">
                         <Lock className="h-8 w-8 text-muted-foreground" />
@@ -222,16 +242,6 @@ export default function TracksPage() {
                     </div>
                   </div>
                 )}
-
-                {/* Corner accent on hover */}
-                {track.revealed && (
-                  <div 
-                    className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{
-                      background: `radial-gradient(circle at top right, color-mix(in srgb, var(--${track.color}) 15%, transparent), transparent 70%)`,
-                    }}
-                  />
-                )}
               </div>
             ))}
           </div>
@@ -240,7 +250,9 @@ export default function TracksPage() {
 
       {/* How it works */}
       <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-[#0a0a12] to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-[rgb(12,12,24)] to-background" />
+        <div className="orb orb-blue w-[300px] h-[300px] top-1/2 -left-32 opacity-30" />
+        <div className="orb orb-red w-[250px] h-[250px] top-1/3 -right-24 opacity-30" />
         
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -255,33 +267,30 @@ export default function TracksPage() {
                 step: "1",
                 title: "Build Your Project",
                 description: "Create your project during the hackathon. One project can qualify for multiple tracks.",
-                color: "cyan",
+                gradient: "from-cyan-500 to-teal-500",
+                glowColor: "rgba(34, 211, 238, 0.3)",
               },
               {
                 step: "2",
                 title: "Submit & Tag",
                 description: "When submitting on Devpost, select all tracks your project applies to.",
-                color: "blue",
+                gradient: "from-blue-500 to-indigo-500",
+                glowColor: "rgba(59, 130, 246, 0.3)",
               },
               {
                 step: "3",
                 title: "Get Judged",
                 description: "Judges evaluate your project for each track separately based on track-specific criteria.",
-                color: "gold",
+                gradient: "from-amber-500 to-yellow-500",
+                glowColor: "rgba(250, 204, 21, 0.3)",
               },
             ].map((item, index) => (
               <div key={index} className="text-center">
                 <div 
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
-                  style={{ 
-                    background: `linear-gradient(135deg, color-mix(in srgb, var(--${item.color}) 20%, transparent), transparent)`,
-                    border: `1px solid color-mix(in srgb, var(--${item.color}) 30%, transparent)`,
-                  }}
+                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-gradient-to-br ${item.gradient}`}
+                  style={{ boxShadow: `0 8px 32px ${item.glowColor}` }}
                 >
-                  <span 
-                    className="text-2xl font-bold"
-                    style={{ color: `var(--${item.color})` }}
-                  >
+                  <span className="text-2xl font-bold text-white">
                     {item.step}
                   </span>
                 </div>
@@ -295,7 +304,7 @@ export default function TracksPage() {
             <Link href="/sign-up">
               <Button 
                 size="lg" 
-                className="bg-[var(--blue)] hover:bg-[var(--blue)]/90 text-white px-10 py-7 rounded-xl shadow-[0_0_30px_rgba(2,125,194,0.4)] hover:shadow-[0_0_50px_rgba(2,125,194,0.6)] transition-all duration-300 group"
+                className="glass-button text-white px-10 py-7 rounded-2xl group"
               >
                 Register to Compete
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

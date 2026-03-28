@@ -10,7 +10,8 @@ import {
 const faqs = [
   {
     category: "General",
-    color: "cyan",
+    gradient: "from-cyan-500 to-teal-500",
+    glowColor: "rgba(34, 211, 238, 0.5)",
     questions: [
       {
         q: "What is Globehacks 2026?",
@@ -32,7 +33,8 @@ const faqs = [
   },
   {
     category: "Teams & Projects",
-    color: "blue",
+    gradient: "from-blue-500 to-indigo-500",
+    glowColor: "rgba(59, 130, 246, 0.5)",
     questions: [
       {
         q: "Do I need to have a team before registering?",
@@ -54,7 +56,8 @@ const faqs = [
   },
   {
     category: "Event Logistics",
-    color: "gold",
+    gradient: "from-amber-500 to-yellow-500",
+    glowColor: "rgba(250, 204, 21, 0.5)",
     questions: [
       {
         q: "What should I bring?",
@@ -76,7 +79,8 @@ const faqs = [
   },
   {
     category: "Judging",
-    color: "magenta",
+    gradient: "from-pink-500 to-rose-500",
+    glowColor: "rgba(236, 72, 153, 0.5)",
     questions: [
       {
         q: "How are projects judged?",
@@ -90,7 +94,8 @@ const faqs = [
   },
   {
     category: "Support & Resources",
-    color: "cyan",
+    gradient: "from-teal-500 to-cyan-500",
+    glowColor: "rgba(20, 184, 166, 0.5)",
     questions: [
       {
         q: "Will there be mentors available?",
@@ -111,17 +116,20 @@ const faqs = [
 export function FAQAccordion() {
   return (
     <section className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-[#0a0a12] to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-[rgb(12,12,24)] to-background" />
+      
+      {/* Subtle floating orbs */}
+      <div className="orb orb-blue w-[300px] h-[300px] top-1/4 -left-32 opacity-20" />
+      <div className="orb orb-red w-[250px] h-[250px] top-1/2 -right-24 opacity-20" />
       
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {faqs.map((category, categoryIndex) => (
           <div key={categoryIndex} className="mb-16 last:mb-0">
             <h2 className="text-xl font-semibold text-foreground mb-8 flex items-center gap-3">
               <div 
-                className="w-3 h-3 rounded-full"
+                className={`w-3 h-3 rounded-full bg-gradient-to-r ${category.gradient}`}
                 style={{ 
-                  backgroundColor: `var(--${category.color})`,
-                  boxShadow: `0 0 10px var(--${category.color})`,
+                  boxShadow: `0 0 10px ${category.glowColor}`,
                 }}
               />
               {category.category}
@@ -132,10 +140,10 @@ export function FAQAccordion() {
                 <AccordionItem 
                   key={index} 
                   value={`${categoryIndex}-${index}`}
-                  className="glass-card glass-card-hover rounded-xl px-6 border-border/50 transition-all duration-300 data-[state=open]:shadow-[0_0_30px_rgba(97,182,207,0.1)]"
+                  className="glass-card glass-card-hover rounded-2xl px-6 transition-all duration-300"
                 >
                   <AccordionTrigger className="text-left hover:no-underline py-6 group">
-                    <span className="text-foreground font-medium pr-4 group-hover:text-[var(--cyan)] transition-colors">
+                    <span className="text-foreground font-medium pr-4 group-hover:text-cyan-400 transition-colors">
                       {item.q}
                     </span>
                   </AccordionTrigger>
