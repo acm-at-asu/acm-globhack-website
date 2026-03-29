@@ -17,9 +17,9 @@ export default async function SignInPage() {
       <Navigation />
 
       <main className="flex-1 pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgb(8,8,16)] via-[rgb(12,12,24)] to-[rgb(8,8,16)]" />
+        <div className="absolute inset-0 bg-linear-to-b from-[rgb(8,8,16)] via-[rgb(12,12,24)] to-[rgb(8,8,16)]" />
         <div className="absolute inset-0 grid-overlay opacity-50" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-cyan-500/3 blur-[150px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-200 h-100 rounded-full bg-cyan-500/3 blur-[150px]" />
 
         <div className="relative z-10 container mx-auto px-4">
           <div className="mx-auto max-w-5xl">
@@ -55,9 +55,9 @@ export default async function SignInPage() {
                 </div>
               </div>
             ) : (
-              <WorkOSEntryCard actionPath="/login" disabled={!isWorkOSConfigured} footerHref="/sign-up" footerLinkLabel="Sign up" footerText="Don't have an account?" mode="sign-in" subtitle="Your email is passed to WorkOS as a login hint, and social sign-in continues through your configured AuthKit providers." title="Sign in" />
               <WorkOSEntryCard
                 actionPath="/login"
+                disabled={!isWorkOSConfigured}
                 footerHref="/sign-up"
                 footerLinkLabel="Sign up"
                 footerText="Don't have an account?"
@@ -77,8 +77,8 @@ export default async function SignInPage() {
     <div className="min-h-screen bg-[rgb(8,8,16)] flex flex-col overflow-x-hidden">
       <Navigation />
       <main className="flex-1 pt-24 pb-12 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgb(8,8,16)] via-[rgb(12,12,24)] to-[rgb(8,8,16)]" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[200px] rounded-full bg-cyan-500/3 blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-[rgb(8,8,16)] via-[rgb(12,12,24)] to-[rgb(8,8,16)]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-75 h-50 rounded-full bg-cyan-500/3 blur-[100px] pointer-events-none" />
         <div className="relative z-10 px-4">
           <Link href="/" className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-cyan-400 transition-colors">
             <ArrowLeft className="h-4 w-4" />Back to Home
