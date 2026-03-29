@@ -1,9 +1,61 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Calendar, MapPin } from "lucide-react"
 import { useEffect, useState } from "react"
+
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  })
+
+  useEffect(() => {
+    const targetDate = new Date("2026-04-18T09:00:00")
+
+    const calculateTimeLeft = () => {
+      const now = new Date()
+      const difference = targetDate.getTime() - now.getTime()
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        })
+      }
+    }
+
+    calculateTimeLeft()
+    const timer = setInterval(calculateTimeLeft, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const timeUnits = [
+    { value: timeLeft.days, label: "Days" },
+    { value: timeLeft.hours, label: "Hours" },
+    { value: timeLeft.minutes, label: "Minutes" },
+    { value: timeLeft.seconds, label: "Seconds" },
+  ]
+
+  return (
+    <div className="flex gap-3 sm:gap-4">
+      {timeUnits.map((unit, index) => (
+        <div key={index} className="glass-card rounded-2xl p-4 sm:p-5 min-w-[70px] sm:min-w-[90px] text-center">
+          <div className="text-2xl sm:text-4xl font-bold text-foreground tabular-nums">
+            {String(unit.value).padStart(2, "0")}
+          </div>
+          <div className="text-xs sm:text-sm text-muted-foreground mt-1">{unit.label}</div>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false)
@@ -13,149 +65,172 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Immersive background */}
-      <div className="absolute inset-0 immersive-bg">
-        <div className="absolute inset-0 noise-overlay" />
-        
-        {/* Animated orbs */}
-        <div 
-          className="orb orb-blue w-[600px] h-[600px] -top-40 -left-40"
-          style={{ animationDelay: '0s' }}
-        />
-        <div 
-          className="orb orb-magenta w-[500px] h-[500px] top-1/3 -right-32"
-          style={{ animationDelay: '-5s' }}
-        />
-        <div 
-          className="orb orb-cyan w-[400px] h-[400px] bottom-20 left-1/4"
-          style={{ animationDelay: '-10s' }}
-        />
-        <div 
-          className="orb orb-gold w-[300px] h-[300px] top-1/4 right-1/3"
-          style={{ animationDelay: '-7s' }}
-        />
+    <section className="relative min-h-screen flex items-center">
+      {/* Static dark background */}
+      <div className="absolute inset-0 bg-[rgb(8,8,16)]" />
 
-        {/* Grid overlay */}
-        <div className="grid-overlay" />
-        
-        {/* Scan line */}
-        <div className="scan-line" />
-        
-        {/* Flowing lines */}
-        <div className="flow-line top-1/4" />
-        <div className="flow-line top-1/2" style={{ animationDelay: '-2s' }} />
-        <div className="flow-line top-3/4" style={{ animationDelay: '-1s' }} />
-      </div>
+      {/* Subtle background color bleed */}
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-pink-500/5 blur-[100px] pointer-events-none" />
+
+      {/* Grid overlay */}
+      <div className="absolute inset-0 grid-overlay opacity-40" />
 
       {/* Content */}
-      <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        {/* Organizer badges */}
-        <div className="flex justify-center items-center gap-4 mb-8">
-          <div className="glass-card px-4 py-2 rounded-full flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[var(--cyan)]/20 flex items-center justify-center">
-              <span className="text-xs font-bold text-[var(--cyan)]">ACM</span>
-            </div>
-            <span className="text-sm text-muted-foreground">ACM at ASU</span>
-          </div>
-          <span className="text-muted-foreground">×</span>
-          <div className="glass-card px-4 py-2 rounded-full flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-[var(--gold)]/20 flex items-center justify-center">
-              <span className="text-xs font-bold text-[var(--gold)]">GCN</span>
-            </div>
-            <span className="text-sm text-muted-foreground">Global Career Network</span>
-          </div>
-        </div>
-
-        {/* Main title */}
-        <h1 className="text-6xl sm:text-8xl lg:text-9xl font-bold mb-4 tracking-tight">
-          <span className="text-foreground">GLOBE</span>
-          <span className="text-[var(--gold)] text-glow-gold">HACK</span>
-          <span className="text-gradient">&apos;26</span>
-        </h1>
-
-        {/* Tagline */}
-        <p className="text-xl sm:text-2xl text-[var(--cyan)] font-medium mb-6 text-glow">
-          Arizona&apos;s First Go-To-Market Hackathon
-        </p>
-
-        {/* Description */}
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed text-balance">
-          24 hours of innovation, collaboration, and building real-world solutions. 
-          Join 150+ developers, designers, and entrepreneurs pushing the boundaries of what&apos;s possible.
-        </p>
-
-        {/* Event info pills */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <div className="glass-card glass-card-hover px-5 py-3 rounded-xl flex items-center gap-3 transition-all duration-300">
-            <Calendar className="h-5 w-5 text-[var(--cyan)]" />
-            <div className="text-left">
-              <p className="text-xs text-muted-foreground">Date</p>
-              <p className="text-sm font-medium text-foreground">April 18-19, 2026</p>
-            </div>
-          </div>
-          <div className="glass-card glass-card-hover px-5 py-3 rounded-xl flex items-center gap-3 transition-all duration-300">
-            <MapPin className="h-5 w-5 text-[var(--magenta)]" />
-            <div className="text-left">
-              <p className="text-xs text-muted-foreground">Location</p>
-              <p className="text-sm font-medium text-foreground">Arizona State University</p>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/sign-up">
-            <Button 
-              size="lg" 
-              className="bg-[var(--blue)] hover:bg-[var(--blue)]/90 text-white text-lg px-10 py-7 rounded-xl shadow-[0_0_30px_rgba(2,125,194,0.4)] hover:shadow-[0_0_50px_rgba(2,125,194,0.6)] transition-all duration-300 group"
-            >
-              Register Now
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-          <Link href="https://discord.gg/PA3XaxjxVH" target="_blank" rel="noopener noreferrer">
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-[var(--cyan)]/30 text-[var(--cyan)] hover:bg-[var(--cyan)]/10 hover:border-[var(--cyan)]/50 text-lg px-10 py-7 rounded-xl backdrop-blur-sm transition-all duration-300"
-            >
-              <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
-              </svg>
-              Join Discord
-            </Button>
-          </Link>
-        </div>
-
-        {/* Stats */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          {[
-            { value: "24", label: "Hours", accent: "cyan" },
-            { value: "150+", label: "Hackers", accent: "gold" },
-            { value: "8", label: "Tracks", accent: "blue" },
-            { value: "24/7", label: "Mentor Support", accent: "magenta" },
-          ].map((stat, index) => (
-            <div 
-              key={index} 
-              className="glass-card rounded-xl p-4 text-center"
-            >
-              <div 
-                className="text-3xl sm:text-4xl font-bold mb-1"
-                style={{ color: `var(--${stat.accent})` }}
-              >
-                {stat.value}
+      <div
+        className={`relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 transition-all duration-1000 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
+        {/* Liquid Glass Container */}
+        <div className="glass-panel rounded-3xl p-8 md:p-12 lg:p-16 border border-white/5">
+          
+          {/* Two column layout: Content left, Globe right — globe shifted left for center alignment */}
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0 lg:-mr-32">
+            
+            {/* Left side - Content */}
+            <div className="flex-1 text-center lg:text-left">
+              
+              {/* Organizer badges */}
+              <div className="flex flex-row flex-wrap items-center gap-3 mb-8 justify-center lg:justify-start">
+                <Link
+                  href="https://asu.acm.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"
+                >
+                  <Image src="/images/acm-asu-logo.png" alt="ACM at ASU" width={28} height={28} style={{ width: "auto", height: "auto", maxWidth: 28, maxHeight: 28 }} className="object-contain flex-shrink-0" />
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+                    ACM at ASU
+                  </span>
+                </Link>
+                <span className="text-muted-foreground text-base font-light">×</span>
+                <Link
+                  href="https://globalcareernetwork.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"
+                >
+                  <Image src="/images/gcn-logo.png" alt="Global Career Network" width={28} height={28} style={{ width: "auto", height: "auto", maxWidth: 28, maxHeight: 28 }} className="object-contain flex-shrink-0" />
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+                    Global Career Network
+                  </span>
+                </Link>
               </div>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+
+              {/* Main title — Zen Dots font */}
+              <h1
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 tracking-tight"
+                style={{ fontFamily: "var(--font-zen-dots), 'Zen Dots', display" }}
+              >
+                <span className="text-cyan-400">GLOBEHACK</span>
+                <span className="text-foreground">&apos;26</span>
+              </h1>
+
+              {/* Tagline with accent bar */}
+              <div className="flex items-center gap-3 mb-6 justify-center lg:justify-start">
+                <div className="h-[3px] w-10 bg-gradient-to-r from-red-500 to-blue-500 rounded-full" />
+                <p className="text-sm sm:text-base font-semibold tracking-widest uppercase text-foreground/80">
+                  First Go-To-Market Hackathon in Arizona
+                </p>
+              </div>
+
+              {/* Date and Location */}
+              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3 mb-8 justify-center lg:justify-start">
+                <div className="inline-flex items-center gap-2 glass-card border border-white/15 rounded-xl px-4 py-2">
+                  <Calendar className="h-4 w-4 text-cyan-400 flex-shrink-0" />
+                  <span className="text-base font-semibold text-foreground">
+                    April 18-19, 2026
+                  </span>
+                </div>
+                <div className="inline-flex items-center gap-2 glass-card border border-white/15 rounded-xl px-4 py-2">
+                  <MapPin className="h-4 w-4 text-pink-400 flex-shrink-0" />
+                  <span className="text-sm font-medium text-muted-foreground">Arizona State University</span>
+                </div>
+              </div>
+
+              {/* Countdown Timer */}
+              <div className="mb-8 flex justify-center lg:justify-start">
+                <CountdownTimer />
+              </div>
+
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
+                <Link href="/sign-up">
+                  <Button
+                    size="lg"
+                    className="glass-button text-white text-lg px-8 py-6 rounded-2xl group w-full sm:w-auto"
+                  >
+                    Register Now
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link href="https://devpost.com" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="glass-card border-white/15 text-foreground/80 hover:bg-white/[0.06] hover:border-white/25 text-lg px-8 py-6 rounded-2xl transition-all duration-300 w-full sm:w-auto"
+                  >
+                    <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor" style={{ color: '#003E54' }}>
+                      <path d="M6.002 1.61L0 12.004 6.002 22.39h11.996L24 12.004 17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853z"/>
+                    </svg>
+                    Devpost
+                  </Button>
+                </Link>
+                <Link href="https://discord.gg/PA3XaxjxVH" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="glass-card border-white/15 text-foreground/80 hover:bg-white/[0.06] hover:border-white/25 text-lg px-8 py-6 rounded-2xl transition-all duration-300 w-full sm:w-auto"
+                  >
+                    <svg className="h-5 w-5 mr-2 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" />
+                    </svg>
+                    Join Discord
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right side - Globe orb */}
+            <div className="relative flex-shrink-0 float-animation w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 flex items-center justify-center">
+              {/* Subtle glow behind orb */}
+              <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-[80px]" />
+              <div className="absolute inset-0 rounded-full bg-pink-500/10 blur-[100px] translate-x-4" />
+              <Image
+                src="/images/hero-orb.png"
+                alt="Globehack 2026 - Energy Orb Logo"
+                width={384}
+                height={384}
+                className="object-contain drop-shadow-[0_0_60px_rgba(59,130,246,0.35)] w-full h-auto max-w-[384px]"
+                priority
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Stats below the glass container */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          {[
+            { value: "8+", label: "Prize Categories", color: "text-cyan-400" },
+            { value: "24", label: "Hours of Hacking", color: "text-pink-400" },
+            { value: "150+", label: "Participants", color: "text-amber-400" },
+            { value: "24/7", label: "Mentor Support", color: "text-blue-400" },
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="glass-card rounded-2xl p-5 text-center hover:bg-white/[0.06] transition-all"
+            >
+              <div className={`text-3xl sm:text-4xl font-bold mb-1 ${stat.color}`}>{stat.value}</div>
+              <p className="text-xs sm:text-sm text-muted-foreground">{stat.label}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="w-6 h-10 rounded-full border border-[var(--cyan)]/30 flex justify-center pt-2">
-          <div className="w-1 h-2 bg-[var(--cyan)] rounded-full animate-bounce" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        <div className="w-6 h-10 rounded-full glass-card flex justify-center pt-2">
+          <div className="w-1 h-2 bg-cyan-400 rounded-full animate-bounce" />
         </div>
       </div>
     </section>

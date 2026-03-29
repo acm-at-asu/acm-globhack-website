@@ -61,16 +61,48 @@ export function WorkOSEntryCard({
   const [email, setEmail] = useState('')
 
   return (
-    <div className="mx-auto w-full max-w-4xl rounded-[2rem] border border-white/8 bg-[#222224]/95 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:p-8">
-      <div className="mx-auto max-w-2xl">
-        <div className="mb-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--cyan)]/80">
-            WorkOS AuthKit
-          </p>
-          <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">{title}</h2>
-          <p className="mt-3 text-base leading-relaxed text-zinc-400">{subtitle}</p>
-        </div>
+    <div className="mx-auto w-full max-w-4xl">
+      <div className="glass-panel rounded-3xl p-6 md:p-8 border border-white/5">
+        <div className="mx-auto max-w-2xl">
+          <div className="mb-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-400">
+              WorkOS AuthKit
+            </p>
+            <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">{title}</h2>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">{subtitle}</p>
+          </div>
 
+          <form
+            action={actionPath}
+            className="space-y-5"
+            method="GET"
+            onSubmit={(event) => {
+              if (disabled) {
+                event.preventDefault()
+              }
+            }}
+          >
+            <div className="space-y-3">
+              <label className="text-left text-lg font-semibold text-white" htmlFor={`${mode}-email`}>
+                Email
+              </label>
+              <div className="relative">
+                <Input
+                  className={cn(
+                    'h-16 rounded-2xl glass-input border-white/10 pl-6 pr-16 text-lg text-white placeholder:text-muted-foreground focus:border-cyan-500/50 focus:ring-cyan-500/20',
+                    disabled && 'opacity-60',
+                  )}
+                  id={`${mode}-email`}
+                  name="email"
+                  onChange={(event) => setEmail(event.target.value)}
+                  placeholder="Your email address"
+                  type="email"
+                  value={email}
+                />
+                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+                  <div className="rounded-xl bg-cyan-500/10 p-2 border border-cyan-500/20">
+                    <KeyRound className="h-5 w-5 text-cyan-400" />
+                  </div>
         <form
           action={actionPath}
           className="space-y-5"
@@ -98,8 +130,15 @@ export function WorkOSEntryCard({
                 </div>
               </div>
             </div>
-          </div>
 
+            <Button
+              className="h-14 w-full rounded-2xl bg-cyan-500/90 hover:bg-cyan-500 text-xl font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
+              disabled={disabled}
+              type="submit"
+            >
+              Continue
+            </Button>
+          </form>
           <Button
             className="h-14 w-full rounded-2xl bg-white text-xl font-semibold text-black hover:bg-white/90"
             type="submit"
@@ -108,12 +147,49 @@ export function WorkOSEntryCard({
           </Button>
         </form>
 
-        <div className="my-8 flex items-center gap-4 text-sm font-medium uppercase tracking-[0.25em] text-zinc-500">
-          <span className="h-px flex-1 bg-white/15" />
-          <span>OR</span>
-          <span className="h-px flex-1 bg-white/15" />
-        </div>
+          <div className="my-8 flex items-center gap-4 text-sm font-medium uppercase tracking-[0.25em] text-muted-foreground">
+            <span className="h-px flex-1 bg-white/10" />
+            <span>OR</span>
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
 
+          <div className="flex flex-col gap-3">
+            <Button
+              asChild={!disabled}
+              className="h-14 w-full rounded-2xl glass-card border-white/10 text-lg text-foreground hover:bg-white/5"
+              variant="outline"
+            >
+              {disabled ? (
+                <span className="flex items-center justify-center gap-3">
+                  <GoogleIcon />
+                  Continue with Google
+                </span>
+              ) : (
+                <a href={actionPath} className="flex items-center justify-center gap-3 w-full">
+                  <GoogleIcon />
+                  Continue with Google
+                </a>
+              )}
+            </Button>
+
+            <Button
+              asChild={!disabled}
+              className="h-14 w-full rounded-2xl glass-card border-white/10 text-lg text-foreground hover:bg-white/5"
+              variant="outline"
+            >
+              {disabled ? (
+                <span className="flex items-center justify-center gap-3">
+                  <GitHubIcon />
+                  Continue with GitHub
+                </span>
+              ) : (
+                <a href={actionPath} className="flex items-center justify-center gap-3 w-full">
+                  <GitHubIcon />
+                  Continue with GitHub
+                </a>
+              )}
+            </Button>
+          </div>
         <div className="space-y-4">
           <Button
             asChild
@@ -138,12 +214,13 @@ export function WorkOSEntryCard({
           </Button>
         </div>
 
-        <p className="mt-8 text-center text-lg text-zinc-400">
-          {footerText}{' '}
-          <Link className="font-medium text-[#9F94FF] transition-colors hover:text-[#b8afff]" href={footerHref}>
-            {footerLinkLabel}
-          </Link>
-        </p>
+          <p className="mt-8 text-center text-lg text-muted-foreground">
+            {footerText}{' '}
+            <Link className="font-medium text-cyan-400 transition-colors hover:text-cyan-300" href={footerHref}>
+              {footerLinkLabel}
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   )
