@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/agenda", label: "Agenda" },
+  { href: "/agenda", label: "Timeline" },
   { href: "/logistics", label: "Logistics" },
   { href: "/tracks", label: "Tracks" },
   { href: "/faq", label: "FAQ" },
@@ -18,19 +18,32 @@ const navItems = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const lastScrollY = useState(0)
 
   useEffect(() => {
+    let lastY = window.scrollY
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+      const currentY = window.scrollY
+      setScrolled(currentY > 20)
+      // Hide when scrolling down past 80px, show when scrolling up
+      if (currentY > lastY && currentY > 80) {
+        setHidden(true)
+      } else {
+        setHidden(false)
+      }
+      lastY = currentY
     }
-    window.addEventListener('scroll', handleScroll)
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled ? 'glass-nav' : 'bg-transparent'
-    }`}>
+    } ${hidden ? '-translate-y-full' : 'translate-y-0'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -40,6 +53,7 @@ export function Navigation() {
                 src="/images/hero-orb.png"
                 alt="Globehacks Logo"
                 fill
+                priority
                 className="object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
               />
             </div>

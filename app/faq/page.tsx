@@ -46,7 +46,7 @@ export default function FAQPage() {
       <section className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animated-border rounded-3xl">
-            <div className="glass-panel rounded-3xl p-10 text-center">
+            <div className="glass-panel rounded-3xl p-10 text-center" style={{ background: 'rgb(8,8,16)' }}>
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                 Still Have Questions?
               </h2>

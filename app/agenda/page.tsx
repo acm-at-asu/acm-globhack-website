@@ -1,10 +1,9 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { AgendaTimeline } from "@/components/agenda/agenda-timeline"
-import Image from "next/image"
 
 export const metadata = {
-  title: "Agenda | Globehacks 2026",
+  title: "Timeline | Globehacks 2026",
   description: "Full schedule for Globehacks 2026 - April 18-19, 2026",
 }
 
@@ -35,24 +34,6 @@ export default function AgendaPage() {
             24 hours of hacking, workshops, mentorship, and more. 
             Here&apos;s everything you need to know about the event timeline.
           </p>
-        </div>
-      </section>
-
-      {/* Official Agenda Image */}
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="animated-border rounded-3xl">
-            <div className="glass-panel rounded-3xl p-2 overflow-hidden">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/globehack%20agenda-roTtpmnGR2YAQCpRJbQQmryTY4dHh5.png"
-                alt="Globehacks 2026 Official Agenda"
-                width={1200}
-                height={2400}
-                className="w-full h-auto rounded-2xl"
-                priority
-              />
-            </div>
-          </div>
         </div>
       </section>
 

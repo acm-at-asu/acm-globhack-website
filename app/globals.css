@@ -176,21 +176,25 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-/* Animated Border */
+/* Animated Border — border-only gradient, dark fill behind it */
 .animated-border {
   position: relative;
-  padding: 2px;
+  padding: 1px;
   border-radius: 1.5rem;
   background: linear-gradient(
-    90deg,
-    rgb(var(--glass-red)),
-    rgb(var(--glass-blue)),
-    rgb(var(--glass-cyan)),
-    rgb(var(--glass-magenta)),
-    rgb(var(--glass-red))
+    135deg,
+    rgba(180, 30, 30, 0.7),
+    rgba(40, 40, 120, 0.7),
+    rgba(30, 100, 180, 0.5),
+    rgba(160, 20, 20, 0.7)
   );
-  background-size: 300% 100%;
-  animation: gradient-shift 8s ease infinite;
+  background-size: 300% 300%;
+  animation: gradient-shift 10s ease infinite;
+}
+
+.animated-border > * {
+  background: rgb(var(--background));
+  border-radius: calc(1.5rem - 1px);
 }
 
 @keyframes gradient-shift {

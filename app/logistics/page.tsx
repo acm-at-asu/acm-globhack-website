@@ -7,7 +7,6 @@ import {
   Clock, 
   Wifi, 
   Coffee,
-  Car,
   Laptop,
   CheckCircle2,
   ArrowRight
@@ -30,7 +29,6 @@ const venueDetails = [
 const amenities = [
   { icon: Wifi, label: "High-Speed WiFi", gradient: "from-cyan-500 to-blue-500" },
   { icon: Coffee, label: "Free Meals & Snacks", gradient: "from-amber-500 to-orange-500" },
-  { icon: Car, label: "Free Parking", gradient: "from-teal-500 to-cyan-500" },
   { icon: Laptop, label: "Power Outlets", gradient: "from-blue-500 to-indigo-500" },
 ]
 
@@ -148,7 +146,7 @@ export default function LogisticsPage() {
         
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="animated-border rounded-3xl">
-            <div className="glass-panel rounded-3xl p-10 text-center">
+            <div className="glass-panel rounded-3xl p-10 text-center" style={{ background: 'rgb(8,8,16)' }}>
               <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">
                 Who Can Participate?
               </h2>

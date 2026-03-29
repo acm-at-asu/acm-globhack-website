@@ -90,26 +90,26 @@ export function HeroSection() {
             <div className="flex-1 text-center lg:text-left">
               
               {/* Organizer badges */}
-              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3 mb-8 justify-center lg:justify-start">
+              <div className="flex flex-row flex-wrap items-center gap-3 mb-8 justify-center lg:justify-start">
                 <Link
                   href="https://asu.acm.org"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"
                 >
-                  <Image src="/images/acm-asu-logo.png" alt="ACM at ASU" width={32} height={32} className="object-contain flex-shrink-0" />
+                  <Image src="/images/acm-asu-logo.png" alt="ACM at ASU" width={28} height={28} style={{ width: 28, height: 28 }} className="object-contain flex-shrink-0" />
                   <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                     ACM at ASU
                   </span>
                 </Link>
-                <span className="text-muted-foreground text-lg font-light hidden sm:block">×</span>
+                <span className="text-muted-foreground text-base font-light">×</span>
                 <Link
                   href="https://globalcareernetwork.org"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"
                 >
-                  <Image src="/images/gcn-logo.png" alt="Global Career Network" width={32} height={32} className="object-contain flex-shrink-0" />
+                  <Image src="/images/gcn-logo.png" alt="Global Career Network" width={28} height={28} style={{ width: 28, height: 28 }} className="object-contain flex-shrink-0" />
                   <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                     Global Career Network
                   </span>
@@ -134,15 +134,15 @@ export function HeroSection() {
               </div>
 
               {/* Date and Location */}
-              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4 mb-8 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row items-center lg:items-start gap-3 mb-8 justify-center lg:justify-start">
                 <div className="inline-flex items-center gap-2 glass-card border border-white/15 rounded-xl px-4 py-2">
                   <Calendar className="h-4 w-4 text-cyan-400 flex-shrink-0" />
                   <span className="text-base font-semibold text-foreground">
                     April 18-19, 2026
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-pink-400" />
+                <div className="inline-flex items-center gap-2 glass-card border border-white/15 rounded-xl px-4 py-2">
+                  <MapPin className="h-4 w-4 text-pink-400 flex-shrink-0" />
                   <span className="text-sm font-medium text-muted-foreground">Arizona State University</span>
                 </div>
               </div>
@@ -153,7 +153,7 @@ export function HeroSection() {
               </div>
 
               {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
                 <Link href="/sign-up">
                   <Button
                     size="lg"
@@ -161,6 +161,18 @@ export function HeroSection() {
                   >
                     Register Now
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link href="https://devpost.com" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="glass-card border-white/15 text-foreground/80 hover:bg-white/[0.06] hover:border-white/25 text-lg px-8 py-6 rounded-2xl transition-all duration-300 w-full sm:w-auto"
+                  >
+                    <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor" style={{ color: '#003E54' }}>
+                      <path d="M6.002 1.61L0 12.004 6.002 22.39h11.996L24 12.004 17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853z"/>
+                    </svg>
+                    Devpost
                   </Button>
                 </Link>
                 <Link href="https://discord.gg/PA3XaxjxVH" target="_blank" rel="noopener noreferrer">
@@ -191,7 +203,8 @@ export function HeroSection() {
                   alt="Globehacks 2026 - Energy Orb Logo"
                   width={384}
                   height={384}
-                  className="w-full h-auto object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]"
+                  className="object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]"
+                  style={{ width: '100%', height: 'auto' }}
                   priority
                   loading="eager"
                   sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
