@@ -43,9 +43,8 @@ export function Navigation() {
                 className="object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
               />
             </div>
-            <span className="text-xl font-bold tracking-tight">
-              <span className="text-foreground">GLOBE</span>
-              <span className="text-gradient">HACK</span>
+            <span className="text-xl font-bold tracking-tight font-zen-dots">
+              <span className="text-cyan-400">GLOBEHACK</span>
             </span>
           </Link>
 

@@ -124,9 +124,8 @@ export function HeroSection() {
 
               {/* Main title */}
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 tracking-tight">
-                <span className="text-foreground">GLOBE</span>
-                <span className="text-gradient">HACK</span>
-                <span className="text-foreground">&apos;26</span>
+                <span className="font-zen-dots text-cyan-400">GLOBEHACK</span>
+                <span className="text-foreground font-zen-dots">&apos;26</span>
               </h1>
 
               {/* Tagline */}
@@ -178,7 +177,7 @@ export function HeroSection() {
             </div>
 
             {/* Right side - Globe orb */}
-            <div className="relative flex-shrink-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <div className="relative flex-shrink-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 flex items-center justify-center">
               {/* Subtle glow behind orb */}
               <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-[60px]" />
               <div className="absolute inset-0 rounded-full bg-pink-500/10 blur-[80px] translate-x-4" />
@@ -188,7 +187,8 @@ export function HeroSection() {
                 <Image
                   src="/images/hero-orb.png"
                   alt="Globehacks 2026 - Energy Orb Logo"
-                  fill
+                  width={384}
+                  height={384}
                   className="object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]"
                   priority
                   loading="eager"

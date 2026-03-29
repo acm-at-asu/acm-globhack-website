@@ -141,7 +141,7 @@ export function ScheduleSection() {
             <span className="text-gradient">Innovation</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From opening ceremony to awards, here&apos;s what to expect at Globehacks 2026.
+            From opening ceremony to awards, here&apos;s what to expect at <span className="font-zen-dots text-cyan-400">Globehacks</span> 2026.
           </p>
         </div>
 

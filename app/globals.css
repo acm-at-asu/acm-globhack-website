@@ -62,6 +62,7 @@
 @theme inline {
   --font-sans: 'Inter', 'Geist', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+  --font-zen-dots: 'Zen Dots', display;
   --color-background: rgb(var(--background));
   --color-foreground: rgb(var(--foreground));
   --color-card: rgb(var(--card));
@@ -495,4 +496,10 @@
 ::selection {
   background: rgba(59, 130, 246, 0.3);
   color: white;
+}
+
+/* Zen Dots font for Globehacks branding */
+.font-zen-dots {
+  font-family: var(--font-zen-dots);
+  letter-spacing: 0.05em;
 }

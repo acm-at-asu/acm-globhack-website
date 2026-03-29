@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Zen_Dots } from 'next/font/google'
 import { withAuth } from '@workos-inc/authkit-nextjs'
 import { AuthKitProvider } from '@workos-inc/authkit-nextjs/components'
 import { Analytics } from '@vercel/analytics/next'
@@ -16,6 +16,12 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ["latin"],
   variable: '--font-mono'
+})
+
+const zenDots = Zen_Dots({ 
+  weight: "400",
+  subsets: ["latin"],
+  variable: '--font-zen-dots'
 })
 
 export const metadata: Metadata = {
@@ -47,7 +53,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} ${zenDots.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
         <AuthKitProvider initialAuth={initialAuth}>

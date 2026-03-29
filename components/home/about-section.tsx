@@ -64,14 +64,14 @@ export function AboutSection() {
         {/* Section header */}
         <div className="text-center mb-20">
           <p className="text-sm font-medium text-cyan-400 uppercase tracking-widest mb-4">
-            What is Globehacks?
+            What is <span className="font-zen-dots">Globehacks</span>?
           </p>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
             More Than Just a{' '}
             <span className="text-gradient">Hackathon</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed text-balance">
-            Globehacks 2026 is Arizona&apos;s premier go-to-market hackathon where innovation meets implementation. 
+            <span className="font-zen-dots text-cyan-400">Globehacks</span> 2026 is Arizona&apos;s premier go-to-market hackathon where innovation meets implementation. 
             Over 24 hours, you&apos;ll build, learn, and connect with a community that values turning ideas into reality.
           </p>
         </div>
