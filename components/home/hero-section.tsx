@@ -191,25 +191,19 @@ export function HeroSection() {
             </div>
 
             {/* Right side - Globe orb */}
-            <div className="relative flex-shrink-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <div className="relative flex-shrink-0 w-72 h-72 sm:w-96 sm:h-96 lg:w-[480px] lg:h-[480px] float-animation">
               {/* Subtle glow behind orb */}
-              <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-[60px]" />
-              <div className="absolute inset-0 rounded-full bg-pink-500/10 blur-[80px] translate-x-4" />
-              
-              {/* The orb itself */}
-              <div className="relative w-full h-full float-animation">
-                <Image
-                  src="/images/hero-orb.png"
-                  alt="Globehacks 2026 - Energy Orb Logo"
-                  width={384}
-                  height={384}
-                  className="object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]"
-                  style={{ width: '100%', height: 'auto' }}
-                  priority
-                  loading="eager"
-                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
-                />
-              </div>
+              <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-[80px]" />
+              <div className="absolute inset-0 rounded-full bg-pink-500/10 blur-[100px] translate-x-4" />
+              <Image
+                src="/images/hero-orb.png"
+                alt="Globehacks 2026 - Energy Orb Logo"
+                fill
+                className="object-contain drop-shadow-[0_0_60px_rgba(59,130,246,0.35)]"
+                priority
+                loading="eager"
+                sizes="(max-width: 640px) 288px, (max-width: 1024px) 384px, 480px"
+              />
             </div>
           </div>
         </div>
