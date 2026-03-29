@@ -124,19 +124,19 @@ export function WorkOSEntryCard({
             <span className="h-px flex-1 bg-white/10" />
           </div>
 
-          <div className="space-y-4">
+          <div className="flex flex-col gap-3">
             <Button
               asChild={!disabled}
-              className="h-14 w-full justify-center rounded-2xl glass-card border-white/10 text-lg text-foreground hover:bg-white/5"
+              className="h-14 w-full rounded-2xl glass-card border-white/10 text-lg text-foreground hover:bg-white/5"
               variant="outline"
             >
               {disabled ? (
-                <span>
+                <span className="flex items-center justify-center gap-3">
                   <GoogleIcon />
                   Continue with Google
                 </span>
               ) : (
-                <a href={actionPath}>
+                <a href={actionPath} className="flex items-center justify-center gap-3 w-full">
                   <GoogleIcon />
                   Continue with Google
                 </a>
@@ -145,16 +145,16 @@ export function WorkOSEntryCard({
 
             <Button
               asChild={!disabled}
-              className="h-14 w-full justify-center rounded-2xl glass-card border-white/10 text-lg text-foreground hover:bg-white/5"
+              className="h-14 w-full rounded-2xl glass-card border-white/10 text-lg text-foreground hover:bg-white/5"
               variant="outline"
             >
               {disabled ? (
-                <span>
+                <span className="flex items-center justify-center gap-3">
                   <GitHubIcon />
                   Continue with GitHub
                 </span>
               ) : (
-                <a href={actionPath}>
+                <a href={actionPath} className="flex items-center justify-center gap-3 w-full">
                   <GitHubIcon />
                   Continue with GitHub
                 </a>
