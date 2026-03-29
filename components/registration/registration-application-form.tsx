@@ -283,7 +283,7 @@ export function RegistrationApplicationForm({
 
         <div className="mt-8 space-y-3">
           <label className="text-lg font-semibold text-white" htmlFor="motivation">
-            Why do you want to join Globehacks? *
+            Why do you want to join Globehack? *
           </label>
           <Textarea
             className="min-h-40 rounded-[1.75rem] border-dashed border-[color:rgba(134,163,233,0.45)] bg-[rgba(11,18,34,0.8)] px-5 py-4 text-base text-white placeholder:text-zinc-500"

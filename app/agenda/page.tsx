@@ -1,14 +1,14 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { AgendaTimeline } from "@/components/agenda/agenda-timeline"
-import Image from "next/image"
+import { AgendaPageMobile } from "@/components/agenda/agenda-page-mobile"
 
 export const metadata = {
-  title: "Agenda | Globehacks 2026",
-  description: "Full schedule for Globehacks 2026 - April 18-19, 2026",
+  title: "Timeline | Globehack 2026",
+  description: "Full schedule for Globehack 2026 - April 18-19, 2026",
 }
 
-export default function AgendaPage() {
+function AgendaDesktop() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
@@ -19,11 +19,12 @@ export default function AgendaPage() {
           <div className="absolute inset-0 noise-overlay" />
           <div className="orb orb-blue w-[400px] h-[400px] top-20 -left-20" />
           <div className="orb orb-cyan w-[300px] h-[300px] top-40 -right-20" />
+          <div className="orb orb-red w-[250px] h-[250px] bottom-10 left-1/3" />
           <div className="grid-overlay" />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-medium text-[var(--cyan)] uppercase tracking-widest mb-4">
+          <p className="text-sm font-medium text-cyan-400 uppercase tracking-widest mb-4">
             April 18-19, 2026
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
@@ -37,26 +38,23 @@ export default function AgendaPage() {
         </div>
       </section>
 
-      {/* Official Agenda Image */}
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="animated-border rounded-2xl">
-            <div className="glass-card rounded-2xl p-2 overflow-hidden">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/globehack%20agenda-roTtpmnGR2YAQCpRJbQQmryTY4dHh5.png"
-                alt="Globehacks 2026 Official Agenda"
-                width={1200}
-                height={2400}
-                className="w-full h-auto rounded-xl"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <AgendaTimeline />
       <Footer />
     </main>
+  )
+}
+
+export default function AgendaPage() {
+  return (
+    <>
+      <div className="hidden md:block">
+        <AgendaDesktop />
+      </div>
+      <div className="block md:hidden">
+        <Navigation />
+        <AgendaPageMobile />
+        <Footer />
+      </div>
+    </>
   )
 }

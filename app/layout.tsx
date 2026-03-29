@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Zen_Dots } from 'next/font/google'
 import { withAuth } from '@workos-inc/authkit-nextjs'
 import { AuthKitProvider } from '@workos-inc/authkit-nextjs/components'
 import { Analytics } from '@vercel/analytics/next'
@@ -8,7 +8,7 @@ import { isWorkOSConfigured } from '@/lib/workos'
 
 import './globals.css'
 
-const spaceGrotesk = Space_Grotesk({ 
+const inter = Inter({ 
   subsets: ["latin"],
   variable: '--font-sans'
 })
@@ -18,20 +18,26 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono'
 })
 
+const zenDots = Zen_Dots({ 
+  weight: "400",
+  subsets: ["latin"],
+  variable: '--font-zen-dots'
+})
+
 export const metadata: Metadata = {
-  title: 'Globehacks 2026 | ACM at ASU x GCN',
+  title: 'Globehack 2026 | ACM at ASU x Global Career Network',
   description: 'Arizona\'s first go-to-market hackathon. Join us April 18-19, 2026 for 24 hours of innovation, collaboration, and learning in a global context.',
-  keywords: ['hackathon', 'ASU', 'ACM', 'GCN', 'coding', 'innovation', 'Arizona', 'tech'],
+  keywords: ['hackathon', 'ASU', 'ACM', 'GCN', 'Global Career Network', 'coding', 'innovation', 'Arizona', 'tech'],
   authors: [{ name: 'ACM at ASU' }, { name: 'Global Career Network' }],
   openGraph: {
-    title: 'Globehacks 2026 | ACM at ASU x GCN',
+    title: 'Globehack 2026 | ACM at ASU x Global Career Network',
     description: 'Arizona\'s first go-to-market hackathon. April 18-19, 2026.',
     type: 'website',
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#027DC2',
+  themeColor: '#080810',
   width: 'device-width',
   initialScale: 1,
 }
@@ -47,7 +53,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} ${zenDots.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
         <AuthKitProvider initialAuth={initialAuth}>
