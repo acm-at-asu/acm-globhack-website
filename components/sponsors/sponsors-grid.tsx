@@ -169,12 +169,14 @@ function PartnerCard({
       <div className="glass-card glass-card-hover rounded-2xl p-8 transition-all duration-500 h-full">
         <div className="flex flex-col items-center text-center h-full">
           {/* Actual logo */}
-          <div className="relative w-24 h-24 mb-6 transition-transform duration-300 group-hover:scale-110">
+          <div className="w-24 h-24 mb-6 transition-transform duration-300 group-hover:scale-110 flex items-center justify-center">
             <Image
               src={partner.logo}
               alt={partner.name}
-              fill
+              width={96}
+              height={96}
               className="object-contain"
+              style={{ width: "auto", height: "auto", maxWidth: 96, maxHeight: 96 }}
             />
           </div>
 

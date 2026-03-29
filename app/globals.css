@@ -508,7 +508,7 @@
   color: white;
 }
 
-/* Zen Dots font for Globehacks branding */
+/* Zen Dots font for Globehack branding */
 .font-zen-dots {
   font-family: var(--font-zen-dots), 'Zen Dots', display !important;
   letter-spacing: 0.05em;

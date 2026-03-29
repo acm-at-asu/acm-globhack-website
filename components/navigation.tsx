@@ -51,11 +51,11 @@ export function Navigation() {
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <Image
               src="/images/hero-orb.png"
-              alt="Globehacks Logo"
+              alt="Globehack Logo"
               width={40}
               height={40}
               priority
-              style={{ width: 40, height: 40 }}
+              style={{ width: "auto", height: "auto", maxWidth: 40, maxHeight: 40 }}
               className="object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
             />
             <span className="text-sm font-bold tracking-tight font-zen-dots">

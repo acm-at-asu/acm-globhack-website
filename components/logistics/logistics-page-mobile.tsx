@@ -51,7 +51,7 @@ export function LogisticsPageMobile() {
             <span className="text-amber-400">Logistics</span>
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Venue info, what to bring, and how to prepare for Globehacks 2026.
+            Venue info, what to bring, and how to prepare for Globehack 2026.
           </p>
         </div>
       </section>

@@ -19,10 +19,10 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6 group">
               <Image
                 src="/images/hero-orb.png"
-                alt="Globehacks Logo"
+                alt="Globehack Logo"
                 width={40}
                 height={40}
-                style={{ width: 40, height: 40 }}
+                style={{ width: "auto", height: "auto", maxWidth: 40, maxHeight: 40 }}
                 className="object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
               />
               <span className="text-xl font-bold tracking-tight">
@@ -38,7 +38,7 @@ export function Footer() {
                 { icon: Github, href: "#" },
                 { icon: Twitter, href: "#" },
                 { icon: Linkedin, href: "#" },
-                { icon: Mail, href: "mailto:contact@globehacks.com" },
+                { icon: Mail, href: "mailto:contact@globehack.com" },
               ].map((social, index) => (
                 <Link 
                   key={index}
@@ -113,7 +113,7 @@ export function Footer() {
                     alt="ACM at ASU"
                     width={40}
                     height={40}
-                    style={{ width: 40, height: 40 }}
+                    style={{ width: "auto", height: "auto", maxWidth: 40, maxHeight: 40 }}
                     className="object-contain group-hover:scale-110 transition-transform duration-300"
                   />
                   <span>ACM at ASU</span>
@@ -132,7 +132,7 @@ export function Footer() {
                     alt="Global Career Network"
                     width={40}
                     height={40}
-                    style={{ width: 40, height: 40 }}
+                    style={{ width: "auto", height: "auto", maxWidth: 40, maxHeight: 40 }}
                     className="object-contain group-hover:scale-110 transition-transform duration-300"
                   />
                   <span>Global Career Network</span>
@@ -145,7 +145,7 @@ export function Footer() {
 
         <div className="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; 2026 <span className="font-zen-dots text-cyan-400">Globehacks</span>. All rights reserved.
+            &copy; 2026 <span className="font-zen-dots text-cyan-400">Globehack</span>. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 animate-pulse" />

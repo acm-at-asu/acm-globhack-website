@@ -97,7 +97,7 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"
                 >
-                  <Image src="/images/acm-asu-logo.png" alt="ACM at ASU" width={28} height={28} style={{ width: 28, height: 28 }} className="object-contain flex-shrink-0" />
+                  <Image src="/images/acm-asu-logo.png" alt="ACM at ASU" width={28} height={28} style={{ width: "auto", height: "auto", maxWidth: 28, maxHeight: 28 }} className="object-contain flex-shrink-0" />
                   <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                     ACM at ASU
                   </span>
@@ -109,7 +109,7 @@ export function HeroSection() {
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"
                 >
-                  <Image src="/images/gcn-logo.png" alt="Global Career Network" width={28} height={28} style={{ width: 28, height: 28 }} className="object-contain flex-shrink-0" />
+                  <Image src="/images/gcn-logo.png" alt="Global Career Network" width={28} height={28} style={{ width: "auto", height: "auto", maxWidth: 28, maxHeight: 28 }} className="object-contain flex-shrink-0" />
                   <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
                     Global Career Network
                   </span>
@@ -197,11 +197,10 @@ export function HeroSection() {
               <div className="absolute inset-0 rounded-full bg-pink-500/10 blur-[100px] translate-x-4" />
               <Image
                 src="/images/hero-orb.png"
-                alt="Globehacks 2026 - Energy Orb Logo"
+                alt="Globehack 2026 - Energy Orb Logo"
                 width={384}
                 height={384}
-                className="object-contain drop-shadow-[0_0_60px_rgba(59,130,246,0.35)]"
-                style={{ width: 384, height: 384 }}
+                className="object-contain drop-shadow-[0_0_60px_rgba(59,130,246,0.35)] w-full h-auto max-w-[384px]"
                 priority
                 loading="eager"
               />

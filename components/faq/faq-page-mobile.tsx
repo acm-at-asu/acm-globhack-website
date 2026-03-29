@@ -21,7 +21,7 @@ export function FAQPageMobile() {
             <span className="text-gradient">Questions</span>
           </h1>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Everything you need to know about Globehacks 2026.
+            Everything you need to know about Globehack 2026.
           </p>
         </div>
       </section>

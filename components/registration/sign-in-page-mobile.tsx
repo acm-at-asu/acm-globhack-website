@@ -24,7 +24,7 @@ export function SignInPageMobile() {
           </p>
           <h1 className="text-2xl font-bold text-white">
             Sign in to your{" "}
-            <span className="text-amber-400">Globehacks</span> profile
+            <span className="text-amber-400">Globehack</span> profile
           </h1>
           <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
             Use WorkOS AuthKit to continue with email, Google, or GitHub.

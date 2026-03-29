@@ -4,8 +4,8 @@ import { AgendaTimeline } from "@/components/agenda/agenda-timeline"
 import { AgendaPageMobile } from "@/components/agenda/agenda-page-mobile"
 
 export const metadata = {
-  title: "Timeline | Globehacks 2026",
-  description: "Full schedule for Globehacks 2026 - April 18-19, 2026",
+  title: "Timeline | Globehack 2026",
+  description: "Full schedule for Globehack 2026 - April 18-19, 2026",
 }
 
 function AgendaDesktop() {

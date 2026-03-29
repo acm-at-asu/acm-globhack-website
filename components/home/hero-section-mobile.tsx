@@ -86,11 +86,10 @@ export function HeroSectionMobile() {
             <div className="absolute inset-0 rounded-full bg-pink-500/10 blur-[50px] translate-x-2" />
             <Image
               src="/images/hero-orb.png"
-              alt="Globehacks 2026"
+              alt="Globehack 2026"
               width={160}
               height={160}
-              className="object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)]"
-              style={{ width: 160, height: 160 }}
+              className="object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.35)] w-full h-auto max-w-[160px]"
               priority
             />
           </div>
@@ -133,7 +132,7 @@ export function HeroSectionMobile() {
               rel="noopener noreferrer"
               className="glass-card px-2.5 py-1.5 rounded-full flex items-center gap-1.5"
             >
-              <Image src="/images/acm-asu-logo.png" alt="ACM at ASU" width={20} height={20} style={{ width: 20, height: 20 }} className="object-contain" />
+              <Image src="/images/acm-asu-logo.png" alt="ACM at ASU" width={20} height={20} style={{ width: "auto", height: "auto", maxWidth: 20, maxHeight: 20 }} className="object-contain" />
               <span className="text-[10px] text-muted-foreground">ACM at ASU</span>
             </Link>
             <span className="text-muted-foreground text-xs">×</span>
@@ -143,7 +142,7 @@ export function HeroSectionMobile() {
               rel="noopener noreferrer"
               className="glass-card px-2.5 py-1.5 rounded-full flex items-center gap-1.5"
             >
-              <Image src="/images/gcn-logo.png" alt="GCN" width={20} height={20} style={{ width: 20, height: 20 }} className="object-contain" />
+              <Image src="/images/gcn-logo.png" alt="GCN" width={20} height={20} style={{ width: "auto", height: "auto", maxWidth: 20, maxHeight: 20 }} className="object-contain" />
               <span className="text-[10px] text-muted-foreground">GCN</span>
             </Link>
           </div>

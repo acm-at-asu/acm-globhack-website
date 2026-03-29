@@ -14,8 +14,8 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Tracks | Globehacks 2026",
-  description: "Explore the competition tracks at Globehacks 2026.",
+  title: "Tracks | Globehack 2026",
+  description: "Explore the competition tracks at Globehack 2026.",
 }
 
 const tracks = [
@@ -120,7 +120,7 @@ const tracks = [
 
 function TracksDesktop() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       
       {/* Hero */}

@@ -14,12 +14,12 @@ const faqs = [
     glowColor: "rgba(34, 211, 238, 0.5)",
     questions: [
       {
-        q: "What is Globehacks 2026?",
-        a: "Globehacks 2026 is Arizona's first go-to-market hackathon, organized by ACM at ASU and Global Career Network. It's a 24-hour event where participants build innovative solutions that go beyond prototypes—projects designed for real-world implementation and market viability.",
+        q: "What is Globehack 2026?",
+        a: "Globehack 2026 is Arizona's first go-to-market hackathon, organized by ACM at ASU and Global Career Network. It's a 24-hour event where participants build innovative solutions that go beyond prototypes—projects designed for real-world implementation and market viability.",
       },
       {
-        q: "When and where is Globehacks 2026?",
-        a: "Globehacks 2026 takes place on April 18-19, 2026 at Arizona State University's Tempe Campus. The event runs for 24 consecutive hours, starting with registration at 9:00 AM on Saturday.",
+        q: "When and where is Globehack 2026?",
+        a: "Globehack 2026 takes place on April 18-19, 2026 at Arizona State University's Tempe Campus. The event runs for 24 consecutive hours, starting with registration at 9:00 AM on Saturday.",
       },
       {
         q: "Who can participate?",
@@ -27,7 +27,7 @@ const faqs = [
       },
       {
         q: "How much does it cost to participate?",
-        a: "Globehacks 2026 is completely free to attend! We provide all meals, snacks, drinks, and swag at no cost. You just need to bring your laptop, a valid ID, and your creativity.",
+        a: "Globehack 2026 is completely free to attend! We provide all meals, snacks, drinks, and swag at no cost. You just need to bring your laptop, a valid ID, and your creativity.",
       },
     ],
   },

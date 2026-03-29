@@ -70,7 +70,7 @@ export function SponsorsPageMobile() {
           {partners.map((p, i) => (
             <Link key={i} href={p.website} target="_blank" rel="noopener noreferrer">
               <div className="glass-card rounded-xl p-3.5 flex items-center gap-3">
-                <Image src={p.logo} alt={p.name} width={40} height={40} style={{ width: 40, height: 40 }} className="object-contain shrink-0" />
+                <Image src={p.logo} alt={p.name} width={40} height={40} style={{ width: "auto", height: "auto", maxWidth: 40, maxHeight: 40 }} className="object-contain shrink-0" />
                 <div>
                   <p className="text-sm font-semibold text-foreground flex items-center gap-1">
                     {p.name} <ExternalLink className="h-3 w-3 opacity-60" />
@@ -158,7 +158,7 @@ export function SponsorsPageMobile() {
           <p className="text-xs text-muted-foreground mb-4">
             Support Arizona&apos;s first go-to-market hackathon and connect with top tech talent.
           </p>
-          <Link href="mailto:globehacks@asu.edu">
+          <Link href="mailto:globehack@asu.edu">
             <Button size="sm" className="glass-button text-white rounded-xl w-full py-5 group">
               Contact Us
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

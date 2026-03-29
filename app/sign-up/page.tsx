@@ -76,7 +76,7 @@ export default async function SignUpPage() {
           <div className="text-center mb-6">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 mb-2">Registration</p>
             <h1 className="text-2xl font-bold text-white">
-              Register for <span className="text-cyan-400">Globehacks</span> <span className="text-amber-400">&apos;26</span>
+              Register for <span className="text-cyan-400">Globehack</span> <span className="text-amber-400">&apos;26</span>
             </h1>
             <p className="mt-2 text-sm text-muted-foreground">Sign up to unlock the full application form.</p>
           </div>

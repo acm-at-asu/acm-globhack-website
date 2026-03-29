@@ -4,8 +4,8 @@ import { SponsorsGrid } from "@/components/sponsors/sponsors-grid"
 import { SponsorsPageMobile } from "@/components/sponsors/sponsors-page-mobile"
 
 export const metadata = {
-  title: "Sponsors | Globehacks 2026",
-  description: "Meet the amazing companies supporting Globehacks 2026.",
+  title: "Sponsors | Globehack 2026",
+  description: "Meet the amazing companies supporting Globehack 2026.",
 }
 
 function SponsorsDesktop() {
@@ -32,7 +32,7 @@ function SponsorsDesktop() {
             <span className="text-amber-400 text-glow-gold">Sponsors</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            <span className="font-zen-dots text-cyan-400">Globehacks</span> 2026 is made possible by the generous support of our sponsors.
+            <span className="font-zen-dots text-cyan-400">Globehack</span> 2026 is made possible by the generous support of our sponsors.
             These industry leaders share our vision of empowering the next generation of innovators.
           </p>
         </div>

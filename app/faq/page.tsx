@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 
 export const metadata = {
-  title: "FAQ | Globehacks 2026",
-  description: "Frequently asked questions about Globehacks 2026 hackathon.",
+  title: "FAQ | Globehack 2026",
+  description: "Frequently asked questions about Globehack 2026 hackathon.",
 }
 
 function FAQDesktop() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       
       {/* Hero */}
@@ -35,7 +35,7 @@ function FAQDesktop() {
             <span className="text-gradient">Questions</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Everything you need to know about Globehacks 2026. Can&apos;t find the answer? 
+            Everything you need to know about Globehack 2026. Can&apos;t find the answer? 
             Join our Discord community for more help.
           </p>
         </div>

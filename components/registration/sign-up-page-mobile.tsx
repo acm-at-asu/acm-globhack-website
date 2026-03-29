@@ -24,7 +24,7 @@ export function SignUpPageMobile() {
           </p>
           <h1 className="text-2xl font-bold text-white">
             Register for{" "}
-            <span className="text-cyan-400">Globehacks</span>{" "}
+            <span className="text-cyan-400">Globehack</span>{" "}
             <span className="text-amber-400">&apos;26</span>
           </h1>
           <p className="mt-2 text-sm text-muted-foreground leading-relaxed">

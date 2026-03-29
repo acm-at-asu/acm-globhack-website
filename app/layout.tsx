@@ -25,12 +25,12 @@ const zenDots = Zen_Dots({
 })
 
 export const metadata: Metadata = {
-  title: 'Globehacks 2026 | ACM at ASU x Global Career Network',
+  title: 'Globehack 2026 | ACM at ASU x Global Career Network',
   description: 'Arizona\'s first go-to-market hackathon. Join us April 18-19, 2026 for 24 hours of innovation, collaboration, and learning in a global context.',
   keywords: ['hackathon', 'ASU', 'ACM', 'GCN', 'Global Career Network', 'coding', 'innovation', 'Arizona', 'tech'],
   authors: [{ name: 'ACM at ASU' }, { name: 'Global Career Network' }],
   openGraph: {
-    title: 'Globehacks 2026 | ACM at ASU x Global Career Network',
+    title: 'Globehack 2026 | ACM at ASU x Global Career Network',
     description: 'Arizona\'s first go-to-market hackathon. April 18-19, 2026.',
     type: 'website',
   },

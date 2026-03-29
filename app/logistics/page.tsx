@@ -16,8 +16,8 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Logistics | Globehacks 2026",
-  description: "Everything you need to know about attending Globehacks 2026 - venue, amenities, and more.",
+  title: "Logistics | Globehack 2026",
+  description: "Everything you need to know about attending Globehack 2026 - venue, amenities, and more.",
 }
 
 const venueDetails = [
@@ -44,7 +44,7 @@ const eligibility = [
 
 function LogisticsDesktop() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       
       {/* Hero */}
@@ -67,7 +67,7 @@ function LogisticsDesktop() {
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Everything you need to know about the venue, what to bring, 
-            and how to prepare for Globehacks 2026.
+            and how to prepare for Globehack 2026.
           </p>
         </div>
       </section>

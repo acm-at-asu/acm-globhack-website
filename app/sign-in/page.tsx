@@ -30,7 +30,7 @@ export default async function SignInPage() {
             <div className="mb-10 text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.36em] text-cyan-400">Secure Access</p>
               <h1 className="mt-4 text-4xl font-bold text-white md:text-6xl">
-                Sign in to your <span className="text-amber-400">Globehacks</span> profile
+                Sign in to your <span className="text-amber-400">Globehack</span> profile
               </h1>
               <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
                 Use WorkOS AuthKit to continue with email, Google, or GitHub.
@@ -77,7 +77,7 @@ export default async function SignInPage() {
           <div className="text-center mb-6">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400 mb-2">Secure Access</p>
             <h1 className="text-2xl font-bold text-white">
-              Sign in to your <span className="text-amber-400">Globehacks</span> profile
+              Sign in to your <span className="text-amber-400">Globehack</span> profile
             </h1>
             <p className="mt-2 text-sm text-muted-foreground">Continue with email, Google, or GitHub.</p>
           </div>
