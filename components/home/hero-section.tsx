@@ -44,7 +44,7 @@ function CountdownTimer() {
   ]
 
   return (
-    <div className="flex gap-3 sm:gap-4 justify-center">
+    <div className="flex gap-3 sm:gap-4">
       {timeUnits.map((unit, index) => (
         <div key={index} className="glass-card rounded-2xl p-4 sm:p-5 min-w-[70px] sm:min-w-[90px] text-center">
           <div className="text-2xl sm:text-4xl font-bold text-foreground tabular-nums">
@@ -65,151 +65,141 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Immersive liquid glass background */}
-      <div className="absolute inset-0 immersive-bg">
-        <div className="absolute inset-0 noise-overlay" />
-        
-        {/* Animated liquid orbs matching the logo colors */}
-        <div 
-          className="orb orb-red w-[700px] h-[700px] -top-32 -left-32"
-          style={{ animationDelay: '0s' }}
-        />
-        <div 
-          className="orb orb-blue w-[600px] h-[600px] top-1/4 -right-24"
-          style={{ animationDelay: '-5s' }}
-        />
-        <div 
-          className="orb orb-magenta w-[400px] h-[400px] bottom-32 left-1/3"
-          style={{ animationDelay: '-10s' }}
-        />
-        <div 
-          className="orb orb-cyan w-[350px] h-[350px] top-1/2 left-1/4"
-          style={{ animationDelay: '-7s' }}
-        />
-
-        {/* Grid overlay */}
-        <div className="grid-overlay" />
-        
-        {/* Scan line */}
-        <div className="scan-line" />
-        
-        {/* Flowing lines */}
-        <div className="flow-line top-1/4" />
-        <div className="flow-line top-1/2" style={{ animationDelay: '-2s' }} />
-        <div className="flow-line top-3/4" style={{ animationDelay: '-1s' }} />
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Static dark background */}
+      <div className="absolute inset-0 bg-[rgb(8,8,16)]" />
+      
+      {/* Subtle muted background orbs - very dark */}
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-blue-500/5 blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-pink-500/5 blur-[150px]" />
+      
+      {/* Grid overlay */}
+      <div className="absolute inset-0 grid-overlay opacity-50" />
 
       {/* Content */}
-      <div className={`relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className={`relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
         
-        {/* Hero Orb Logo */}
-        <div className="relative mx-auto mb-8 w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72">
-          <div className="liquid-glow absolute inset-0" />
-          <div className="relative w-full h-full float-animation">
-            <Image
-              src="/images/hero-orb.png"
-              alt="Globehacks 2026 - Energy Orb Logo"
-              fill
-              className="object-contain drop-shadow-[0_0_60px_rgba(59,130,246,0.5)]"
-              priority
-            />
-          </div>
-        </div>
+        {/* Liquid Glass Container - like innovationhacks.dev */}
+        <div className="glass-panel rounded-3xl p-8 md:p-12 lg:p-16 border border-white/5">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            
+            {/* Left side - Text content */}
+            <div className="flex-1 text-center lg:text-left">
+              {/* Organizer badges */}
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-3 mb-8">
+                <Link 
+                  href="https://asu.acm.org" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"
+                >
+                  <div className="relative w-8 h-8">
+                    <Image
+                      src="/images/acm-asu-logo.png"
+                      alt="ACM at ASU"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">ACM at ASU</span>
+                </Link>
+                <span className="text-muted-foreground text-xl font-light">x</span>
+                <Link 
+                  href="https://globalcareernetwork.org" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"
+                >
+                  <div className="relative w-8 h-8">
+                    <Image
+                      src="/images/gcn-logo.png"
+                      alt="Global Career Network"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Global Career Network</span>
+                </Link>
+              </div>
 
-        {/* Organizer badges with actual logos */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-          <Link 
-            href="https://asu.acm.org" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="glass-card glass-card-hover px-5 py-3 rounded-full flex items-center gap-3 group"
-          >
-            <div className="relative w-10 h-10">
-              <Image
-                src="/images/acm-asu-logo.png"
-                alt="ACM at ASU"
-                fill
-                className="object-contain group-hover:scale-110 transition-transform duration-300"
-              />
+              {/* Main title */}
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 tracking-tight">
+                <span className="text-foreground">GLOBE</span>
+                <span className="text-gradient">HACK</span>
+                <span className="text-foreground">&apos;26</span>
+              </h1>
+
+              {/* Tagline */}
+              <p className="text-xl sm:text-2xl text-cyan-400 font-medium mb-6">
+                Arizona&apos;s First Go-To-Market Hackathon
+              </p>
+
+              {/* Event info pills */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+                <div className="glass-card px-4 py-2 rounded-xl flex items-center gap-2">
+                  <Calendar className="h-4 w-4 text-cyan-400" />
+                  <span className="text-sm font-medium text-foreground">April 18-19, 2026</span>
+                </div>
+                <div className="glass-card px-4 py-2 rounded-xl flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-pink-400" />
+                  <span className="text-sm font-medium text-foreground">Arizona State University</span>
+                </div>
+              </div>
+
+              {/* Countdown Timer */}
+              <div className="mb-10 flex justify-center lg:justify-start">
+                <CountdownTimer />
+              </div>
+
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link href="/sign-up">
+                  <Button 
+                    size="lg" 
+                    className="glass-button text-white text-lg px-8 py-6 rounded-2xl group w-full sm:w-auto"
+                  >
+                    Register Now
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link href="https://discord.gg/PA3XaxjxVH" target="_blank" rel="noopener noreferrer">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="glass-card border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-500/50 text-lg px-8 py-6 rounded-2xl transition-all duration-300 w-full sm:w-auto"
+                  >
+                    <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
+                    </svg>
+                    Join Discord
+                  </Button>
+                </Link>
+              </div>
             </div>
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">ACM at ASU</span>
-          </Link>
-          <span className="text-muted-foreground text-2xl font-light">x</span>
-          <Link 
-            href="https://globalcareernetwork.org" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="glass-card glass-card-hover px-5 py-3 rounded-full flex items-center gap-3 group"
-          >
-            <div className="relative w-10 h-10">
-              <Image
-                src="/images/gcn-logo.png"
-                alt="Global Career Network"
-                fill
-                className="object-contain group-hover:scale-110 transition-transform duration-300"
-              />
+
+            {/* Right side - Globe orb */}
+            <div className="relative flex-shrink-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+              {/* Subtle glow behind orb */}
+              <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-[60px]" />
+              <div className="absolute inset-0 rounded-full bg-pink-500/10 blur-[80px] translate-x-4" />
+              
+              {/* The orb itself */}
+              <div className="relative w-full h-full float-animation">
+                <Image
+                  src="/images/hero-orb.png"
+                  alt="Globehacks 2026 - Energy Orb Logo"
+                  fill
+                  className="object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.3)]"
+                  priority
+                  loading="eager"
+                />
+              </div>
             </div>
-            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Global Career Network</span>
-          </Link>
-        </div>
-
-        {/* Main title */}
-        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-4 tracking-tight">
-          <span className="text-foreground">GLOBE</span>
-          <span className="text-gradient">HACK</span>
-          <span className="text-foreground">&apos;26</span>
-        </h1>
-
-        {/* Tagline */}
-        <p className="text-xl sm:text-2xl text-cyan-400 font-medium mb-6 text-glow">
-          Arizona&apos;s First Go-To-Market Hackathon
-        </p>
-
-        {/* Event info pills */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          <div className="glass-card px-5 py-3 rounded-2xl flex items-center gap-3">
-            <Calendar className="h-5 w-5 text-cyan-400" />
-            <span className="text-sm font-medium text-foreground">April 18-19, 2026</span>
-          </div>
-          <div className="glass-card px-5 py-3 rounded-2xl flex items-center gap-3">
-            <MapPin className="h-5 w-5 text-pink-400" />
-            <span className="text-sm font-medium text-foreground">Arizona State University</span>
           </div>
         </div>
 
-        {/* Countdown Timer */}
-        <div className="mb-12">
-          <CountdownTimer />
-        </div>
-
-        {/* CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Link href="/sign-up">
-            <Button 
-              size="lg" 
-              className="glass-button text-white text-lg px-10 py-7 rounded-2xl group w-full sm:w-auto"
-            >
-              Register Now
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-          <Link href="https://discord.gg/PA3XaxjxVH" target="_blank" rel="noopener noreferrer">
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="glass-card border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-500/50 text-lg px-10 py-7 rounded-2xl backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
-            >
-              <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
-              </svg>
-              Join Discord
-            </Button>
-          </Link>
-        </div>
-
-        {/* Stats - Similar to innovationhacks.dev */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        {/* Stats below the glass container */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-10">
           {[
             { value: "8+", label: "Prize Categories", color: "text-cyan-400" },
             { value: "24", label: "Hours of Hacking", color: "text-pink-400" },
@@ -218,7 +208,7 @@ export function HeroSection() {
           ].map((stat, index) => (
             <div 
               key={index} 
-              className="glass-card glass-card-hover rounded-2xl p-5 text-center"
+              className="glass-card rounded-2xl p-5 text-center hover:bg-white/[0.06] transition-all"
             >
               <div className={`text-3xl sm:text-4xl font-bold mb-1 ${stat.color}`}>
                 {stat.value}

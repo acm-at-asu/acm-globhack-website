@@ -63,8 +63,8 @@ export function WorkOSEntryCard({
   const [email, setEmail] = useState('')
 
   return (
-    <div className="mx-auto w-full max-w-4xl animated-border rounded-3xl">
-      <div className="glass-panel rounded-3xl p-6 md:p-8">
+    <div className="mx-auto w-full max-w-4xl">
+      <div className="glass-panel rounded-3xl p-6 md:p-8 border border-white/5">
         <div className="mx-auto max-w-2xl">
           <div className="mb-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-400">
@@ -91,7 +91,7 @@ export function WorkOSEntryCard({
               <div className="relative">
                 <Input
                   className={cn(
-                    'h-16 rounded-2xl glass-input border-blue-500/30 pl-6 pr-16 text-lg text-white placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/30',
+                    'h-16 rounded-2xl glass-input border-white/10 pl-6 pr-16 text-lg text-white placeholder:text-muted-foreground focus:border-cyan-500/50 focus:ring-cyan-500/20',
                     disabled && 'opacity-60',
                   )}
                   id={`${mode}-email`}
@@ -102,7 +102,7 @@ export function WorkOSEntryCard({
                   value={email}
                 />
                 <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
-                  <div className="rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-2 border border-blue-500/20">
+                  <div className="rounded-xl bg-cyan-500/10 p-2 border border-cyan-500/20">
                     <KeyRound className="h-5 w-5 text-cyan-400" />
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export function WorkOSEntryCard({
             </div>
 
             <Button
-              className="h-14 w-full rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 text-xl font-semibold text-white hover:from-blue-600 hover:to-cyan-600 shadow-[0_8px_32px_rgba(59,130,246,0.4)] transition-all duration-300 hover:-translate-y-0.5"
+              className="h-14 w-full rounded-2xl bg-cyan-500/90 hover:bg-cyan-500 text-xl font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
               disabled={disabled}
               type="submit"
             >
