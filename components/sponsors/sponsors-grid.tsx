@@ -9,12 +9,14 @@ const sponsors = {
     {
       name: "Moatable (Lofty, Trucker)",
       logo: "M",
+      logoPath: "/images/moatable-logo.jpeg",
       description: "Confirmed Gold sponsor supporting Globehack.",
       website: "https://www.moatable.com",
     },
     {
       name: "Vector",
-      logo: "V",
+      logo: "",
+      logoPath: "/images/go-vector-ai.jpeg",
       description: "Confirmed Gold sponsor supporting Globehack.",
       website: "https://govector.ai",
     },
@@ -23,6 +25,7 @@ const sponsors = {
     {
       name: "Hydrawav3",
       logo: "H",
+      logoPath: "/images/hydrawav3_logo.jpeg",
       description: "Confirmed Silver sponsor supporting Globehack.",
       website: "https://www.hydrawav3.com",
     },
@@ -31,26 +34,30 @@ const sponsors = {
     {
       name: "ISSC Future Self",
       logo: "IF",
+      logoPath: "/images/issc-logo.jpeg",
       description: "Confirmed Bronze sponsor supporting Globehack.",
       website: "#",
     },
     {
       name: "ElevenLabs",
       logo: "EL",
+      logoPath: "/images/eleven-labs-logo.webp",
       description: "Confirmed sponsor supporting Globehack.",
       website: "https://elevenlabs.io",
     },
     {
       name: "InsForge",
       logo: "IN",
+      logoPath: "/images/insforge-logo.jpeg",
       description: "Confirmed sponsor supporting Globehack.",
       website: "https://insforge.dev",
     },
     {
       name: "Tamagrow",
       logo: "T",
+      logoPath: "/images/tamagrow-logo.png",
       description: "Confirmed sponsor supporting Globehack.",
-      website: "#",
+      website: "https://tamagrow.app",
     },
   ],
   bronze: [],
@@ -71,11 +78,11 @@ const partners = [
   },
 ]
 
-const tierConfig: Record<string, { color: string; label: string }> = {
-  platinum: { color: "gold", label: "Gold Sponsors" },
-  gold: { color: "#C0C0C0", label: "Silver Sponsors" },
-  silver: { color: "#CD7F32", label: "Bronze Sponsors" },
-  partners: { color: "#3B82F6", label: "Organizing Partners" },
+const tierConfig: Record<string, { color: string; label: string; hex?: string }> = {
+  platinum: { color: "#FFDD44", label: "Gold Sponsors", hex: "#000000"},//"#FFDD44" }, // gold
+  gold: { color: "#E0E0E0", label: "Silver Sponsors", hex: "#000000"},//"#F0F0F0" }, // silver
+  silver: { color: "#FC9F52", label: "Bronze Sponsors", hex: "#000000"},//"#FF7F52" }, // bronze
+  partners: { color: "#6BB2FF", label: "Organizing Partners", hex: "#000000"},//"#3B82F6" },
 }
 
 function SponsorCard({ 
@@ -83,7 +90,7 @@ function SponsorCard({
   tier,
   size = "md" 
 }: { 
-  sponsor: { name: string; logo: string; description: string; website: string }
+  sponsor: { name: string; logo: string; description: string; website: string; logoPath?: string }
   tier: string
   size?: "lg" | "md" | "sm"
 }) {
@@ -100,8 +107,8 @@ function SponsorCard({
   }
 
   const color = tierConfig[tier].color
-  const isVariable = color.startsWith('#') ? false : true
-  const displayColor = isVariable ? `var(--${color})` : color
+  const hexGlow = tierConfig[tier].hex || "#000";
+  const displayColor = color;
 
   return (
     <Link 
@@ -112,21 +119,30 @@ function SponsorCard({
     >
       <div 
         className={`glass-card glass-card-hover rounded-2xl ${sizeClasses[size]} transition-all duration-500 h-full`}
-        style={{ 
-          boxShadow: `0 0 30px ${isVariable ? `color-mix(in srgb, var(--${color}) 10%, transparent)` : `${color}15`}`,
-        }}
       >
         <div className="flex flex-col items-center text-center h-full">
           {/* Logo placeholder */}
           <div 
             className={`${logoSizes[size]} rounded-2xl flex items-center justify-center mb-6 font-bold transition-transform duration-300 group-hover:scale-110`}
             style={{ 
-              background: `linear-gradient(135deg, ${isVariable ? `color-mix(in srgb, var(--${color}) 20%, transparent)` : `${color}20`}, transparent)`,
-              border: `1px solid ${isVariable ? `color-mix(in srgb, var(--${color}) 30%, transparent)` : `${color}30`}`,
-              color: isVariable ? `var(--${color})` : color,
+              background: "#000",
+              border: "1px solid #000",
+              color: "#fff",
             }}
           >
-            {sponsor.logo}
+            {sponsor.logoPath ? (
+              <Image
+                src={sponsor.logoPath}
+                alt={sponsor.name + " logo"}
+                width={64}
+                height={64}
+                className="object-contain w-full h-full rounded-md"
+                style={{ boxShadow: `0 0 10px 4px ${hexGlow}50` }}
+                unoptimized
+              />
+            ) : (
+              sponsor.logo
+            )}
           </div>
 
           {/* Name */}

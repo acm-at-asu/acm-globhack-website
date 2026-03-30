@@ -213,7 +213,7 @@ export function HeroSection() {
           {[
             { value: "8+", label: "Prize Categories", color: "text-cyan-400" },
             { value: "24", label: "Hours of Hacking", color: "text-pink-400" },
-            { value: "150+", label: "Participants", color: "text-amber-400" },
+            { value: "250+", label: "Participants", color: "text-amber-400" },
             { value: "24/7", label: "Mentor Support", color: "text-blue-400" },
           ].map((stat, index) => (
             <div

@@ -14,7 +14,15 @@ import {
   Presentation, 
   Users, 
   Trophy,
-  Clock
+  Clock,
+  User,
+  Lightbulb,
+  Sandwich,
+  Pizza,
+  Donut,
+  AlarmClock,
+  ForkKnifeCrossed,
+  Volume2
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -22,58 +30,86 @@ const saturdayEvents = [
   {
     time: "9:00 AM",
     title: "Registration & Check-in",
-    description: "Participants pick up badges and swag while enjoying coffee; optional team-building is available for those looking for partners.",
-    icon: Coffee,
-    color: "cyan",
+    description: "Participants pick up badges and swag; optional team-building is available for those looking for partners.",
+    icon: User,
+    color: "#23d1ee",
   },
   {
     time: "10:00 AM",
     title: "Opening Ceremony",
     description: "The official launch featuring the theme announcement, sponsor introductions, and a breakdown of judging criteria.",
     icon: Mic,
-    color: "gold",
+    color: "#29c2f1",
   },
   {
     time: "10:30 AM",
     title: "Hacking Begins",
     description: "Teams start building immediately; mentors are available throughout the workspace for the duration of the event.",
     icon: Code,
-    color: "blue",
+    color: "#2db3f2",
+  },
+  {
+    time: "11:30 AM",
+    title: "Technical Workshop #1",
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    icon: Lightbulb,
+    color: "#32a5f4",
   },
   {
     time: "12:00 PM",
     title: "Lunch",
-    description: "Buffet-style lunch for all 150 participants. Take a break and network!",
-    icon: Utensils,
-    color: "magenta",
+    description: "Delicious catering for all 250 participants. Take a break and network!",
+    icon: Sandwich,
+    color: "#3986f5",
   },
   {
-    time: "10:30 AM - 6:30 PM",
-    title: "Technical Workshops",
-    description: "Optional sessions running at 10:30 AM, 12:30 PM, 2:30 PM, 4:30 PM, and 6:30 PM covering APIs, UI/UX, and pitching tips.",
-    icon: BookOpen,
-    color: "cyan",
+    time: "12:30 PM",
+    title: "Lofty Workshop",
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    icon: Lightbulb,
+    color: "#398af5",
+  },
+  {
+    time: "1:30 PM",
+    title: "Technical Workshop #3",
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    icon: Lightbulb,
+    color: "#5780ee",
+  },
+  {
+    time: "2:30 PM",
+    title: "Trucker Workshop",
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    icon: Lightbulb,
+    color: "#7a7cdf",
+  },
+  {
+    time: "3:30 PM",
+    title: "Coffee Break + Workshop #5",
+    description: "Coffee break followed by a technical workshop.",
+    icon: Coffee,
+    color: "#9777d2",
   },
   {
     time: "6:00 PM",
     title: "Dinner",
-    description: "Efficient serving line for all participants. Refuel for the overnight sprint!",
-    icon: Utensils,
-    color: "magenta",
+    description: "Evening dinner break with more networking.",
+    icon: Pizza,
+    color: "#ae70c4",
   },
   {
     time: "11:00 PM",
     title: "Progress Checkpoint",
-    description: "A mandatory check-in where teams submit their team name, project summary, and current build status.",
+    description: "Mentor check-ins and mini-pitches to get feedback.",
     icon: ClipboardCheck,
-    color: "gold",
+    color: "#c566b5",
   },
   {
     time: "11:30 PM",
     title: "Overnight Hacking",
     description: "A quiet zone and rest area are provided, with snacks and energy drinks available to sustain teams through the night.",
     icon: Moon,
-    color: "blue",
+    color: "#d8539f",
   },
 ]
 
@@ -81,44 +117,51 @@ const sundayEvents = [
   {
     time: "9:00 AM",
     title: "Breakfast",
-    description: "Quick service coffee, pastries, and fruit to start the final push.",
-    icon: Sun,
-    color: "gold",
+    description: "Quick service coffee, and donuts to start the final push.",
+    icon: Donut,
+    color: "#24ceef",
   },
   {
     time: "11:00 AM",
-    title: "Lunch & Judge Briefing",
-    description: "Buffet-style lunch for 150 participants. Judges receive their briefing during this time.",
-    icon: Utensils,
-    color: "magenta",
+    title: "Project Submission Deadline & Judge Briefing",
+    description: "Strict cutoff for submitting code repository links and pitch decks via Devpost. Judges receive their briefing during this time.",
+    icon: AlarmClock,
+    color: "#2cb8f2",
   },
   {
-    time: "11:00 AM",
-    title: "Project Submission Deadline",
-    description: "Strict cutoff for submitting code repository links and pitch decks via Devpost.",
-    icon: Upload,
-    color: "magenta",
+    time: "11:30 AM",
+    title: "Lunch",
+    description: "Enjoy a final meal while judges review submissions.",
+    icon: ForkKnifeCrossed,
+    color: "#339ef4",
   },
   {
     time: "12:00 PM",
-    title: "Final Presentations",
-    description: "The top 12-15 teams deliver a 5-minute pitch followed by a 3-minute Q&A session with the judges.",
+    title: "Final Presentations & Judging Begins",
+    description: "The teams deliver a 5-minute pitch followed by a Q&A session with the judges.",
     icon: Presentation,
-    color: "cyan",
+    color: "#3988f5",
   },
   {
     time: "2:30 PM",
-    title: "Deliberation",
+    title: "Judge Deliberation",
     description: "Judges review results while participants network and connect with sponsors.",
     icon: Users,
-    color: "blue",
+    color: "#777de2",
+  },
+  {
+    time: "2:30 PM",
+    title: "Company Keynotes",
+    description: "Hear from our sponsors and industry leaders about the future of tech.",
+    icon: Volume2,
+    color: "#b36ec1",
   },
   {
     time: "3:00 PM",
     title: "Closing Ceremony & Awards",
     description: "Winner announcements, sponsor thank-yous, and a final group photo to conclude the event.",
     icon: Trophy,
-    color: "gold",
+    color: "#d05ead",
   },
 ]
 
@@ -197,8 +240,8 @@ export function AgendaTimeline() {
                 <div 
                   className="absolute left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full z-10 mt-8"
                   style={{ 
-                    backgroundColor: `var(--${event.color})`,
-                    boxShadow: `0 0 15px var(--${event.color})`,
+                    backgroundColor: event.color.startsWith('#') ? event.color : `var(--${event.color})`,
+                    boxShadow: `0 0 15px ${event.color.startsWith('#') ? event.color : `var(--${event.color})`}`,
                   }}
                 />
 
@@ -218,7 +261,7 @@ export function AgendaTimeline() {
                       <Clock className="h-4 w-4 text-muted-foreground" />
                       <span 
                         className="text-sm font-mono font-semibold"
-                        style={{ color: `var(--${event.color})` }}
+                        style={{ color: event.color.startsWith('#') ? event.color : `var(--${event.color})` }}
                       >
                         {event.time}
                       </span>
@@ -232,13 +275,15 @@ export function AgendaTimeline() {
                       <div 
                         className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
                         style={{ 
-                          background: `linear-gradient(135deg, color-mix(in srgb, var(--${event.color}) 20%, transparent), transparent)`,
-                          border: `1px solid color-mix(in srgb, var(--${event.color}) 30%, transparent)`,
+                          background: event.color.startsWith('#') 
+                            ? `${event.color}20` // 20 for ~12% opacity
+                            : `linear-gradient(135deg, color-mix(in srgb, var(--${event.color}) 20%, transparent), transparent)`,
+                            
                         }}
                       >
                         <event.icon 
                           className="h-6 w-6" 
-                          style={{ color: `var(--${event.color})` }}
+                          style={{ color: event.color.startsWith('#') ? event.color : `var(--${event.color})` }}
                         />
                       </div>
                       <h4 className={cn(

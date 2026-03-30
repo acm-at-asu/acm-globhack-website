@@ -16,7 +16,7 @@ const venueDetails = [
   { icon: MapPin, label: "Location", value: "ASU Tempe Campus", gradient: "from-pink-500 to-rose-500", glowColor: "rgba(236,72,153,0.3)" },
   { icon: Calendar, label: "Dates", value: "April 18-19, 2026", gradient: "from-cyan-500 to-teal-500", glowColor: "rgba(34,211,238,0.3)" },
   { icon: Clock, label: "Duration", value: "24 Hours", gradient: "from-blue-500 to-indigo-500", glowColor: "rgba(59,130,246,0.3)" },
-  { icon: Users, label: "Capacity", value: "150 Hackers", gradient: "from-amber-500 to-yellow-500", glowColor: "rgba(250,204,21,0.3)" },
+  { icon: Users, label: "Capacity", value: "250 Hackers", gradient: "from-amber-500 to-yellow-500", glowColor: "rgba(250,204,21,0.3)" },
 ]
 
 const amenities = [

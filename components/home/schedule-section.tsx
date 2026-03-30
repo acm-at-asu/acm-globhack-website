@@ -25,13 +25,7 @@ const scheduleDay1 = [
     icon: Code,
     gradient: "from-pink-500 to-rose-500",
   },
-  {
-    time: "11:30 AM",
-    title: "Workshop #1",
-    description: "Technical workshops and mentor office hours.",
-    icon: Lightbulb,
-    gradient: "from-blue-600 to-cyan-600",
-  },
+  
   {
     time: "12:00 PM",
     title: "Lunch",
@@ -40,33 +34,13 @@ const scheduleDay1 = [
     gradient: "from-teal-500 to-green-500",
   },
   {
-    time: "12:30 PM",
-    title: "Lofty Workshop",
+    time: "11:30 AM - 3:30 PM",
+    title: "Technical Workshops",
     description: "Technical workshops and mentor office hours.",
     icon: Lightbulb,
     gradient: "from-blue-600 to-cyan-600",
   },
-  {
-    time: "1:30 PM",
-    title: "Workshop #3",
-    description: "Technical workshops and mentor office hours.",
-    icon: Lightbulb,
-    gradient: "from-blue-600 to-cyan-600",
-  },
-  {
-    time: "2:30 PM",
-    title: "Trucker Workshop",
-    description: "Technical workshops and mentor office hours.",
-    icon: Lightbulb,
-    gradient: "from-blue-600 to-cyan-600",
-  },
-  {
-    time: "3:30 PM",
-    title: "Coffee Break + Workshop #5",
-    description: "Coffee break followed by a technical workshop.",
-    icon: Coffee,
-    gradient: "from-blue-600 to-cyan-600",
-  },
+  
   {
     time: "6:00 PM",
     title: "Dinner",

@@ -15,6 +15,8 @@
 
 :root {
   --background: oklch(1 0 0);
+  --purple: #a855f7; /* Tailwind purple-500 */
+  --amber: #f59e42;  /* Tailwind amber-500 */
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -51,6 +53,8 @@
 
 .dark {
   --background: oklch(0.145 0 0);
+  --purple: #a855f7;
+  --amber: #f59e42;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);

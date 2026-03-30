@@ -38,7 +38,7 @@ const faqs = [
     questions: [
       {
         q: "Do I need to have a team before registering?",
-        a: "No! You can register as an individual and find teammates at the event. We'll have team formation activities during registration on Saturday morning. Teams can have 1-4 members.",
+        a: "No! You can register as an individual and find teammates at the event. We'll have team formation activities during registration on Saturday morning. Teams can have 1-5 members.",
       },
       {
         q: "What can I build?",
@@ -71,10 +71,7 @@ const faqs = [
         q: "Can I sleep at the venue?",
         a: "Yes! We have designated quiet zones and rest areas for participants who want to take breaks during the overnight hacking period. We recommend bringing a sleeping bag or blanket for comfort.",
       },
-      {
-        q: "Is there parking available?",
-        a: "Yes, free parking is available on campus for all participants. Details about parking locations will be sent to registered participants before the event.",
-      },
+      
     ],
   },
   {
@@ -88,7 +85,7 @@ const faqs = [
       },
       {
         q: "Do I need to present my project?",
-        a: "All teams submit their projects before the deadline. The top 12-15 teams are selected to give 5-minute presentations followed by 3-minute Q&A sessions with judges.",
+        a: "All teams submit their projects before the deadline. The teams give a 5-minute presentation of their submission on Devpost followed by a Q&A sessions with judges.",
       },
     ],
   },
