@@ -12,9 +12,8 @@ export async function GET(request: Request) {
   const email = searchParams.get('email')?.trim() || undefined
   const signInUrl = await getSignInUrl({
     loginHint: email,
-    returnTo: '/sign-up',
+    returnTo: '/sign-in',
   })
 
   redirect(signInUrl)
 }
-

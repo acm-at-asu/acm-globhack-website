@@ -118,6 +118,12 @@ export function WorkOSEntryCard({
             </Button>
           </form>
 
+          {disabled ? (
+            <div className="mt-4 rounded-2xl border border-amber-400/20 bg-amber-400/10 px-4 py-3 text-sm text-amber-100">
+              WorkOS sign-in is currently unavailable because the required server environment variables are missing.
+            </div>
+          ) : null}
+
           <div className="my-8 flex items-center gap-4 text-sm font-medium uppercase tracking-[0.25em] text-muted-foreground">
             <span className="h-px flex-1 bg-white/10" />
             <span>OR</span>
