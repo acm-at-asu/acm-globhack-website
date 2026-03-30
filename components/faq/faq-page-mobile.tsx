@@ -48,7 +48,7 @@ export function FAQPageMobile() {
                 Join Discord
               </Button>
             </Link>
-            <Link href="/sign-up">
+            <Link href="/register">
               <Button
                 size="sm"
                 variant="outline"

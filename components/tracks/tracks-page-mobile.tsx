@@ -188,7 +188,7 @@ export function TracksPageMobile() {
               </div>
             ))}
           </div>
-          <Link href="/sign-up" className="block mt-5">
+          <Link href="/register" className="block mt-5">
             <Button size="sm" className="glass-button text-white rounded-xl w-full py-5 group">
               Register to Compete
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

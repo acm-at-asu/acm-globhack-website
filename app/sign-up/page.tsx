@@ -39,7 +39,7 @@ export default async function SignUpPage() {
                           <p className="mt-2 text-base text-muted-foreground">Signed in with <span className="text-white">{user.email}</span>. Your application window is now available below.</p>
                         </div>
                       </div>
-                      <form action={async () => { 'use server'; await signOut({ returnTo: '/sign-up' }) }}>
+                      <form action={async () => { 'use server'; await signOut({ returnTo: '/' }) }}>
                         <Button className="h-12 rounded-2xl glass-card border-white/10 px-6 hover:bg-white/5" type="submit" variant="outline">Sign Out</Button>
                       </form>
                     </div>
@@ -93,7 +93,7 @@ export default async function SignUpPage() {
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">Signed in as <span className="text-white">{user.email}</span></p>
-                <form action={async () => { 'use server'; await signOut({ returnTo: '/sign-up' }) }}>
+                <form action={async () => { 'use server'; await signOut({ returnTo: '/' }) }}>
                   <Button className="h-10 rounded-xl glass-card border-white/10 text-foreground hover:bg-white/5 w-full text-sm" type="submit" variant="outline">Sign Out</Button>
                 </form>
               </div>

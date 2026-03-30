@@ -160,7 +160,7 @@ function LogisticsDesktop() {
                 ))}
               </div>
 
-              <Link href="/sign-up">
+              <Link href="/register">
                 <Button 
                   size="lg" 
                   className="glass-button text-white px-10 py-7 rounded-2xl group"

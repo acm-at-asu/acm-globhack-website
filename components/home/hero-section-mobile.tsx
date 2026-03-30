@@ -154,7 +154,7 @@ export function HeroSectionMobile() {
 
           {/* CTA buttons - stacked */}
           <div className="flex flex-col gap-2.5">
-            <Link href="/sign-up" className="w-full">
+            <Link href="/register" className="w-full">
               <Button
                 size="lg"
                 className="glass-button text-white text-base px-6 py-5 rounded-xl group w-full"

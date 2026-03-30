@@ -48,7 +48,7 @@ export default async function SignInPage() {
                     <Button asChild className="h-12 rounded-2xl glass-button px-6 text-white">
                       <Link href="/sign-up">Go to Registration</Link>
                     </Button>
-                    <form action={async () => { 'use server'; await signOut({ returnTo: '/sign-in' }) }}>
+                    <form action={async () => { 'use server'; await signOut({ returnTo: '/' }) }}>
                       <Button className="h-12 rounded-2xl glass-card border-white/10 px-6 text-foreground hover:bg-white/5" type="submit" variant="outline">Sign Out</Button>
                     </form>
                   </div>
@@ -99,7 +99,7 @@ export default async function SignInPage() {
               <p className="text-sm text-muted-foreground mb-5">Logged in as <span className="text-white">{user.email}</span></p>
               <div className="flex flex-col gap-2.5">
                 <Button asChild className="h-11 rounded-xl glass-button text-white w-full"><Link href="/sign-up">Go to Registration</Link></Button>
-                <form action={async () => { 'use server'; await signOut({ returnTo: '/sign-in' }) }}>
+                <form action={async () => { 'use server'; await signOut({ returnTo: '/' }) }}>
                   <Button className="h-11 rounded-xl glass-card border-white/10 text-foreground hover:bg-white/5 w-full" type="submit" variant="outline">Sign Out</Button>
                 </form>
               </div>

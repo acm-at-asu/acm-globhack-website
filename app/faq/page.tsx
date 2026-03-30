@@ -66,7 +66,7 @@ function FAQDesktop() {
                     Join Discord
                   </Button>
                 </Link>
-                <Link href="/sign-up">
+                <Link href="/register">
                   <Button 
                     size="lg"
                     variant="outline"

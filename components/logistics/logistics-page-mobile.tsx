@@ -120,7 +120,7 @@ export function LogisticsPageMobile() {
               </div>
             ))}
           </div>
-          <Link href="/sign-up">
+          <Link href="/register">
             <Button size="sm" className="glass-button text-white rounded-xl w-full py-5 group">
               Register Now
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

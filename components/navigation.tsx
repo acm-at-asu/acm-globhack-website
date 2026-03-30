@@ -106,7 +106,7 @@ export function Navigation() {
               </Button>
             </Link>
             {/* Register */}
-            <Link href="/sign-up">
+            <Link href="/register">
               <Button
                 size="sm"
                 className="glass-button text-white rounded-xl"
@@ -151,7 +151,7 @@ export function Navigation() {
                     Devpost
                   </Button>
                 </Link>
-                <Link href="/sign-up">
+                <Link href="/register">
                   <Button className="w-full glass-button text-white rounded-xl">
                     Register
                   </Button>

@@ -154,7 +154,7 @@ export function HeroSection() {
 
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
-                <Link href="/sign-up">
+                <Link href="/register">
                   <Button
                     size="lg"
                     className="glass-button text-white text-lg px-8 py-6 rounded-2xl group w-full sm:w-auto"
