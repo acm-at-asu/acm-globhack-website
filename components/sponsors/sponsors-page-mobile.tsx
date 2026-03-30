@@ -22,7 +22,7 @@ const sponsors = {
 
 const partners = [
   { name: "ACM at ASU", logo: "/images/acm-asu-logo.png", description: "ACM student chapter at Arizona State University.", website: "https://asu.acm.org" },
-  { name: "Global Career Network", logo: "/images/gcn-logo.png", description: "Connecting students with global career opportunities.", website: "https://globalcareernetwork.org" },
+  { name: "Global Career Network", logo: "/images/gcn-logo.png", description: "Connecting students with global career opportunities.", website: "https://gcn-asu.com/" },
 ]
 
 const tierColors: Record<string, string> = {

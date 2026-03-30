@@ -137,7 +137,7 @@ export function HeroSectionMobile() {
             </Link>
             <span className="text-muted-foreground text-xs">×</span>
             <Link
-              href="https://globalcareernetwork.org"
+              href="https://gcn-asu.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-card px-2.5 py-1.5 rounded-full flex items-center gap-1.5"

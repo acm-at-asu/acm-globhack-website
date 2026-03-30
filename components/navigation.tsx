@@ -93,7 +93,7 @@ export function Navigation() {
               </Button>
             </Link>
             {/* Sun Devil Central */}
-            <Link href="https://globehack.devpost.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://sundevilcentral.eoss.asu.edu/globalcareernetwork/rsvp_boot?id=401832" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="sm"

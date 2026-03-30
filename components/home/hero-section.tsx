@@ -104,7 +104,7 @@ export function HeroSection() {
                 </Link>
                 <span className="text-muted-foreground text-base font-light">×</span>
                 <Link
-                  href="https://globalcareernetwork.org"
+                  href="https://gcn-asu.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="glass-card px-4 py-2 rounded-full flex items-center gap-2 group hover:bg-white/[0.06] transition-all"

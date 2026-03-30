@@ -74,7 +74,7 @@ const partners = [
     name: "Global Career Network",
     logo: "/images/gcn-logo.png",
     description: "Connecting students with global career opportunities and professional development.",
-    website: "https://globalcareernetwork.org",
+    website: "https://gcn-asu.com/",
   },
 ]
 
