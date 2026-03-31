@@ -16,7 +16,7 @@ const sponsors = {
     {
       name: "Trucker Path",
       logo: "M",
-      logoPath: "/images/trucker-path-logo.png",
+      logoPath: "/images/Trucker-Path-logo.png",
       description: "Phoenix-based Trucker Path is the provider of a wide range of truck driver-centric mobility products. Its Trucker Path app is currently in use by nearly 1 million professional truck drivers.",
       website: "https://truckerpath.com",
     },
@@ -263,7 +263,7 @@ export function SponsorsGrid() {
         {/* Gold */}
         <div className="mb-20">
           <TierHeader tier="gold" />
-          <div className="grid grid-cols-1 gap-8 max-w-5xl mx-auto md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 max-w-7xl mx-auto md:grid-cols-3">
             {sponsors.gold.map((sponsor, index) => (
               <SponsorCard key={index} sponsor={sponsor} tier="gold" size="lg" />
             ))}
@@ -273,7 +273,7 @@ export function SponsorsGrid() {
         {/* Silver */}
         <div className="mb-20">
           <TierHeader tier="silver" />
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-6 justify-items-center max-w-4xl mx-auto mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-6 justify-items-center max-w-lg mx-auto mb-20">
             {sponsors.silver.map((sponsor, index) => (
               <SponsorCard key={index} sponsor={sponsor} tier="silver" size="md" />
             ))}
@@ -283,7 +283,7 @@ export function SponsorsGrid() {
         {/* Bronze */}
         <div>
           <TierHeader tier="bronze" />
-          <div className="grid grid-cols-1 md:grid-cols-1 gap-6 justify-items-center max-w-4xl mx-auto mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-6 justify-items-center max-w-lg mx-auto mb-20">
             {sponsors.bronze.map((sponsor, index) => (
               <SponsorCard key={index} sponsor={sponsor} tier="bronze" size="md" />
             ))}
