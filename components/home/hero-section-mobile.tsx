@@ -100,7 +100,7 @@ export function HeroSectionMobile() {
             className="text-xl font-bold mb-2 tracking-tight text-center"
             style={{ fontFamily: "var(--font-zen-dots), 'Zen Dots', display" }}
           >
-            <span className="text-cyan-400">GLOBEHACK</span>
+            <span className="bg-gradient-to-r from-[#df2a1d] to-cyan-400 bg-clip-text text-transparent">GLOBEHACK</span>
             <span className="text-foreground">&apos;26</span>
           </h1>
 

@@ -48,7 +48,7 @@ export default async function SignUpPage() {
                 </>
               ) : (
                 <div className="space-y-6">
-                  <WorkOSEntryCard actionPath="/register" disabled={!isWorkOSConfigured} footerHref="/sign-in" footerLinkLabel="Sign in" footerText="Already have an account?" mode="register" subtitle="Register with Google or GitHub to unlock the application window right away." title="Sign up" />
+                  <WorkOSEntryCard actionPath="/register" disabled={!isWorkOSConfigured} footerHref="/register" footerLinkLabel="Sign in" footerText="Already have an account?" mode="register" subtitle="Register with Google or GitHub to unlock the application window right away." title="Sign up" />
                   <div className="glass-card rounded-2xl border border-white/5 px-6 py-5 text-center">
                     <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-400">Application Locked</p>
                     <p className="mt-3 text-lg text-muted-foreground">Register or sign in with Google or GitHub first, and the full application window will appear here automatically.</p>
@@ -101,7 +101,7 @@ export default async function SignUpPage() {
             </div>
           ) : (
             <div className="flex flex-col gap-4">
-              <WorkOSEntryCard actionPath="/register" disabled={!isWorkOSConfigured} footerHref="/sign-in" footerLinkLabel="Sign in" footerText="Already have an account?" mode="register" subtitle="Use Google or GitHub to unlock the application window." title="Sign up" />
+              <WorkOSEntryCard actionPath="/register" disabled={!isWorkOSConfigured} footerHref="/register" footerLinkLabel="Sign in" footerText="Already have an account?" mode="register" subtitle="Use Google or GitHub to unlock the application window." title="Sign up" />
               <div className="glass-card rounded-xl border border-white/5 px-4 py-4 text-center">
                 <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">Application Locked</p>
                 <p className="mt-2 text-sm text-muted-foreground">Register or sign in with Google or GitHub first, and the full application will appear automatically.</p>

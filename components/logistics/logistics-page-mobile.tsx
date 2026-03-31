@@ -13,16 +13,17 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 const venueDetails = [
-  { icon: MapPin, label: "Location", value: "ASU Tempe Campus", gradient: "from-pink-500 to-rose-500", glowColor: "rgba(236,72,153,0.3)" },
-  { icon: Calendar, label: "Dates", value: "April 18-19, 2026", gradient: "from-cyan-500 to-teal-500", glowColor: "rgba(34,211,238,0.3)" },
-  { icon: Clock, label: "Duration", value: "24 Hours", gradient: "from-blue-500 to-indigo-500", glowColor: "rgba(59,130,246,0.3)" },
-  { icon: Users, label: "Capacity", value: "250 Hackers", gradient: "from-amber-500 to-yellow-500", glowColor: "rgba(250,204,21,0.3)" },
+  { href: "https://maps.app.goo.gl/sKu1942SYTb4tYR9A", icon: MapPin, label: "Location Day #1", value: "Arizona State University, Tempe Campus, LSE 104", gradient: "from-pink-500 to-rose-600", glowColor: "rgba(236, 72, 153, 0.3)", underline: true },
+  { href: "https://maps.app.goo.gl/c411Svv7Ce9MX4Sq8", icon: MapPin, label: "Location Day #2", value: "Arizona State University, Tempe Campus, ECG 101", gradient: "from-pink-500 to-rose-600", glowColor: "rgba(236, 72, 153, 0.3)", underline: true },
+  { href: "#", icon: Calendar, label: "Dates", value: "April 18-19, 2026", gradient: "from-cyan-500 to-teal-600", glowColor: "rgba(34, 211, 238, 0.3)", underline: false },
+  { href: "#", icon: Clock, label: "Duration", value: "24 Hours", gradient: "from-blue-500 to-indigo-600", glowColor: "rgba(59, 130, 246, 0.3)", underline: false },
+  { href: "#", icon: Users, label: "Capacity", value: "250+ Hackers", gradient: "from-amber-500 to-yellow-600", glowColor: "rgba(250, 204, 21, 0.3)", underline: false },
 ]
 
 const amenities = [
-  { icon: Wifi, label: "High-Speed WiFi", gradient: "from-cyan-500 to-blue-500" },
-  { icon: Coffee, label: "Free Meals & Snacks", gradient: "from-amber-500 to-orange-500" },
-  { icon: Laptop, label: "Power Outlets", gradient: "from-blue-500 to-indigo-500" },
+  { href: "#", icon: Wifi, label: "High-Speed WiFi", gradient: "from-cyan-500 to-blue-600" },
+  { href: "#", icon: Coffee, label: "Free Meals & Snacks", gradient: "from-amber-500 to-orange-600" },
+  { href: "#", icon: Laptop, label: "Power Outlets", gradient: "from-blue-500 to-indigo-600" },
 ]
 
 const eligibility = [
@@ -71,7 +72,9 @@ export function LogisticsPageMobile() {
                 </div>
                 <div>
                   <p className="text-[10px] text-muted-foreground">{detail.label}</p>
-                  <p className="text-sm text-foreground font-medium">{detail.value}</p>
+                 <a href={detail.href}>
+                    <p className="text-xs hover:text-blue-400 text-foreground font-medium">{detail.value}</p>
+                  </a>
                 </div>
               </div>
             ))}

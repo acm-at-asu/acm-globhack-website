@@ -13,73 +13,123 @@ import Link from "next/link"
 const tracks = [
   {
     id: "ai-ml",
-    title: "AI & Machine Learning",
-    icon: Brain,
+    title: "Secret Track",
+    icon: Lock,
     gradient: "from-cyan-500 to-blue-500",
     glowColor: "rgba(34, 211, 238, 0.3)",
     textColor: "text-cyan-400",
-    badge: "Open",
-    description:
-      "Build intelligent solutions powered by AI and ML. Create apps that learn, predict, and automate.",
-    revealed: true,
+    badge: "TBA",
+    description: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    examples: [
+      "Natural language processing tools",
+      "Computer vision applications",
+      "Predictive analytics dashboards",
+      "AI-powered automation",
+    ],
+    revealed: false,
   },
   {
     id: "social-impact",
-    title: "Social Impact",
-    icon: Heart,
+    title: "Secret Track",
+    icon: Lock,
     gradient: "from-pink-500 to-rose-500",
     glowColor: "rgba(236, 72, 153, 0.3)",
     textColor: "text-pink-400",
-    badge: "Open",
-    description:
-      "Create technology that makes a positive difference in communities and addresses real-world challenges.",
-    revealed: true,
+    badge: "TBA",
+    description: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    examples: [
+      "Accessibility tools",
+      "Environmental sustainability apps",
+      "Community connection platforms",
+      "Health and wellness solutions",
+    ],
+    revealed: false,
   },
   {
     id: "ui-ux",
-    title: "Best UI/UX Design",
-    icon: Palette,
+    title: "Secret Track",
+    icon: Lock,
     gradient: "from-amber-500 to-yellow-500",
     glowColor: "rgba(250, 204, 21, 0.3)",
     textColor: "text-amber-400",
-    badge: "Open",
-    description:
-      "Showcase exceptional interface design and user experience with mastery of design principles.",
-    revealed: true,
+    badge: "TBA",
+    description: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    examples: [
+      "Beautifully crafted interfaces",
+      "Intuitive user flows",
+      "Accessible design patterns",
+      "Micro-interactions and animations",
+    ],
+    revealed: false,
   },
   {
     id: "innovation",
-    title: "Most Innovative",
-    icon: Lightbulb,
+    title: "Secret Track",
+    icon: Lock,
     gradient: "from-blue-500 to-indigo-500",
     glowColor: "rgba(59, 130, 246, 0.3)",
     textColor: "text-blue-400",
-    badge: "Open",
-    description:
-      "Think outside the box and build something truly unique with creative problem-solving.",
-    revealed: true,
+    badge: "TBA",
+    description: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    examples: [
+      "Unique technology combinations",
+      "Novel problem-solving approaches",
+      "Unconventional use cases",
+      "Creative technical implementations",
+    ],
+    revealed: false,
   },
   {
     id: "first-time",
-    title: "Best First-Time Hackers",
-    icon: GraduationCap,
+    title: "Secret Track",
+    icon: Lock,
     gradient: "from-teal-500 to-cyan-500",
     glowColor: "rgba(20, 184, 166, 0.3)",
     textColor: "text-teal-400",
-    badge: "Open",
-    description:
-      "New to hackathons? This track celebrates teams where all members are first-time hackers.",
-    revealed: true,
+    badge: "TBA",
+    description: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    examples: [
+      "Any project from first-time teams",
+      "Learning and growth emphasized",
+      "Mentorship encouraged",
+      "All skill levels welcome",
+    ],
+    revealed: false,
   },
   {
     id: "secret",
     title: "Secret Track",
     icon: Lock,
-    gradient: "from-gray-500 to-gray-600",
+    gradient: "from-purple-400 to-purple-900",
     glowColor: "rgba(107, 114, 128, 0.2)",
     textColor: "text-gray-400",
     badge: "TBA",
-    description: "Revealed during the opening ceremony. Stay tuned!",
+    description: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    examples: ["???", "???", "???", "???"],
+    revealed: false,
+  },
+  {
+    id: "new track",
+    title: "Secret Track",
+    icon: Lock,
+    gradient: "from-gray-400 to-gray-900",
+    glowColor: "rgba(107, 114, 128, 0.2)",
+    textColor: "text-gray-400",
+    badge: "TBA",
+    description: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    examples: ["???", "???", "???", "???"],
+    revealed: false,
+  },
+  {
+    id: "new track 2",
+    title: "Secret Track",
+    icon: Lock,
+    gradient: "from-teal-400 to-green-700",
+    glowColor: "rgba(107, 114, 128, 0.2)",
+    textColor: "text-gray-400",
+    badge: "TBA",
+    description: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+    examples: ["???", "???", "???", "???"],
     revealed: false,
   },
 ]
@@ -141,7 +191,7 @@ export function TracksPageMobile() {
               </div>
 
               <p className="text-xs text-muted-foreground leading-relaxed">
-                {track.revealed ? track.description : "Revealed at Opening Ceremony"}
+                {track.revealed ? track.description : "Revealed on April 6th"}
               </p>
             </div>
           ))}
@@ -149,7 +199,7 @@ export function TracksPageMobile() {
       </section>
 
       {/* How it works */}
-      <section className="px-4 pb-12">
+      {/*<section className="px-4 pb-12">
         <div className="glass-panel rounded-2xl p-5 border border-white/5">
           <h2 className="text-base font-bold text-foreground mb-4 text-center">
             How Track Judging Works
@@ -195,7 +245,7 @@ export function TracksPageMobile() {
             </Button>
           </Link>
         </div>
-      </section>
+      </section>*/}
     </main>
   )
 }

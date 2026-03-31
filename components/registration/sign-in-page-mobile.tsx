@@ -34,7 +34,7 @@ export function SignInPageMobile() {
         <WorkOSEntryCard
           actionPath="/login"
           disabled={!isWorkOSConfigured}
-          footerHref="/sign-up"
+          footerHref="/register"
           footerLinkLabel="Sign up"
           footerText="Don't have an account?"
           mode="sign-in"

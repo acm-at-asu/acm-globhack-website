@@ -46,7 +46,7 @@ export default async function SignInPage() {
                   <p className="mt-3 text-lg text-muted-foreground">Logged in as <span className="text-white">{user.email}</span></p>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
                     <Button asChild className="h-12 rounded-2xl glass-button px-6 text-white">
-                      <Link href="/sign-up">Go to Registration</Link>
+                      <Link href="/register">Go to Registration</Link>
                     </Button>
                     <form action={async () => { 'use server'; await signOut({ returnTo: '/' }) }}>
                       <Button className="h-12 rounded-2xl glass-card border-white/10 px-6 text-foreground hover:bg-white/5" type="submit" variant="outline">Sign Out</Button>
@@ -58,7 +58,7 @@ export default async function SignInPage() {
               <WorkOSEntryCard
                 actionPath="/login"
                 disabled={!isWorkOSConfigured}
-                footerHref="/sign-up"
+                footerHref="/register"
                 footerLinkLabel="Sign up"
                 footerText="Don't have an account?"
                 mode="sign-in"
@@ -98,14 +98,14 @@ export default async function SignInPage() {
               <h2 className="text-xl font-bold text-white mb-1">Already signed in</h2>
               <p className="text-sm text-muted-foreground mb-5">Logged in as <span className="text-white">{user.email}</span></p>
               <div className="flex flex-col gap-2.5">
-                <Button asChild className="h-11 rounded-xl glass-button text-white w-full"><Link href="/sign-up">Go to Registration</Link></Button>
+                <Button asChild className="h-11 rounded-xl glass-button text-white w-full"><Link href="/register">Go to Registration</Link></Button>
                 <form action={async () => { 'use server'; await signOut({ returnTo: '/' }) }}>
                   <Button className="h-11 rounded-xl glass-card border-white/10 text-foreground hover:bg-white/5 w-full" type="submit" variant="outline">Sign Out</Button>
                 </form>
               </div>
             </div>
           ) : (
-            <WorkOSEntryCard actionPath="/login" disabled={!isWorkOSConfigured} footerHref="/sign-up" footerLinkLabel="Sign up" footerText="Don't have an account?" mode="sign-in" subtitle="Choose Google or GitHub to continue." title="Sign in" />
+            <WorkOSEntryCard actionPath="/login" disabled={!isWorkOSConfigured} footerHref="/register" footerLinkLabel="Sign up" footerText="Don't have an account?" mode="sign-in" subtitle="Choose Google or GitHub to continue." title="Sign in" />
           )}
         </div>
       </main>

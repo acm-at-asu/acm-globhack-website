@@ -1,40 +1,161 @@
 "use client"
 
 import { useState } from "react"
-import {
-  Coffee,
-  Mic,
-  Code,
-  Utensils,
-  BookOpen,
-  ClipboardCheck,
-  Moon,
-  Sun,
-  Upload,
-  Presentation,
-  Users,
+import { 
+  Coffee, 
+  Mic, 
+  Code, 
+  Utensils, 
+  BookOpen, 
+  ClipboardCheck, 
+  Moon, 
+  Sun, 
+  Upload, 
+  Presentation, 
+  Users, 
   Trophy,
   Clock,
+  User,
+  Lightbulb,
+  Sandwich,
+  Pizza,
+  Donut,
+  AlarmClock,
+  ForkKnifeCrossed,
+  Volume2
 } from "lucide-react"
 
 const saturdayEvents = [
-  { time: "9:00 AM", title: "Registration & Check-in", description: "Pick up badges and swag while enjoying coffee. Team-building available.", icon: Coffee, color: "cyan" },
-  { time: "10:00 AM", title: "Opening Ceremony", description: "Theme announcement, sponsor introductions, and judging criteria breakdown.", icon: Mic, color: "gold" },
-  { time: "10:30 AM", title: "Hacking Begins", description: "Teams start building. Mentors available throughout.", icon: Code, color: "blue" },
-  { time: "12:00 PM", title: "Lunch", description: "Buffet-style lunch for all participants.", icon: Utensils, color: "magenta" },
-  { time: "10:30 AM – 6:30 PM", title: "Technical Workshops", description: "Optional sessions covering APIs, UI/UX, and pitching tips.", icon: BookOpen, color: "cyan" },
-  { time: "6:00 PM", title: "Dinner", description: "Refuel for the overnight sprint!", icon: Utensils, color: "magenta" },
-  { time: "11:00 PM", title: "Progress Checkpoint", description: "Mandatory check-in: submit team name, project summary, and build status.", icon: ClipboardCheck, color: "gold" },
-  { time: "11:30 PM", title: "Overnight Hacking", description: "Quiet zone and rest area provided. Snacks and drinks available.", icon: Moon, color: "blue" },
+  {
+    time: "9:00 AM",
+    title: "Registration & Check-in",
+    description: "Participants pick up badges and swag; optional team-building is available for those looking for partners.",
+    icon: User,
+    color: "#23d1ee",
+  },
+  {
+    time: "10:00 AM",
+    title: "Opening Ceremony",
+    description: "The official launch featuring the theme announcement, sponsor introductions, and a breakdown of judging criteria.",
+    icon: Mic,
+    color: "#29c2f1",
+  },
+  {
+    time: "10:30 AM",
+    title: "Hacking Begins",
+    description: "Teams start building immediately; mentors are available throughout the workspace for the duration of the event.",
+    icon: Code,
+    color: "#2db3f2",
+  },
+  {
+    time: "11:30 AM",
+    title: "Vector AI Workshop #1",
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    icon: Lightbulb,
+    color: "#32a5f4",
+  },
+  {
+    time: "12:00 PM",
+    title: "Lunch",
+    description: "Delicious catering for all 250 participants. Take a break and network!",
+    icon: Sandwich,
+    color: "#3986f5",
+  },
+  {
+    time: "12:30 PM",
+    title: "Lofty Workshop",
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    icon: Lightbulb,
+    color: "#398af5",
+  },
+  {
+    time: "1:30 PM",
+    title: "Vector AI Workshop #2",
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    icon: Lightbulb,
+    color: "#5780ee",
+  },
+  {
+    time: "2:30 PM",
+    title: "Trucker Workshop",
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    icon: Lightbulb,
+    color: "#7a7cdf",
+  },
+  {
+    time: "3:30 PM",
+    title: "Coffee Break + Hydrawav3 Workshop",
+    description: "Coffee break followed by a technical workshop.",
+    icon: Coffee,
+    color: "#9777d2",
+  },
+  {
+    time: "6:00 PM",
+    title: "Dinner",
+    description: "Evening dinner break with more networking.",
+    icon: Pizza,
+    color: "#ae70c4",
+  },
+  {
+    time: "09:30 PM",
+    title: "Progress Checkpoint",
+    description: "Mentor check-ins and mini-pitches to get feedback.",
+    icon: ClipboardCheck,
+    color: "#c566b5",
+  },
+  
 ]
 
 const sundayEvents = [
-  { time: "9:00 AM", title: "Breakfast", description: "Coffee, pastries, and fruit to start the final push.", icon: Sun, color: "gold" },
-  { time: "11:00 AM", title: "Lunch & Judge Briefing", description: "Buffet-style lunch. Judges receive their briefing.", icon: Utensils, color: "magenta" },
-  { time: "11:00 AM", title: "Submission Deadline", description: "Strict cutoff for code repo links and pitch decks via Devpost.", icon: Upload, color: "magenta" },
-  { time: "12:00 PM", title: "Final Presentations", description: "Top 12-15 teams deliver 5-min pitch + 3-min Q&A.", icon: Presentation, color: "cyan" },
-  { time: "2:30 PM", title: "Deliberation", description: "Judges review results while participants network with sponsors.", icon: Users, color: "blue" },
-  { time: "3:00 PM", title: "Closing Ceremony & Awards", description: "Winner announcements, sponsor thank-yous, and group photo.", icon: Trophy, color: "gold" },
+  {
+    time: "9:00 AM",
+    title: "Breakfast",
+    description: "Quick service coffee, and donuts to start the final push.",
+    icon: Donut,
+    color: "#24ceef",
+  },
+  {
+    time: "11:00 AM",
+    title: "Project Submission Deadline & Judge Briefing",
+    description: "Strict cutoff for submitting code repository links and pitch decks via Devpost. Judges receive their briefing during this time.",
+    icon: AlarmClock,
+    color: "#2cb8f2",
+  },
+  {
+    time: "11:30 AM",
+    title: "Lunch",
+    description: "Enjoy a final meal while judges review submissions.",
+    icon: ForkKnifeCrossed,
+    color: "#339ef4",
+  },
+  {
+    time: "12:00 PM",
+    title: "Final Presentations & Judging Begins",
+    description: "The teams deliver a 5-minute pitch followed by a Q&A session with the judges.",
+    icon: Presentation,
+    color: "#3988f5",
+  },
+  {
+    time: "2:30 PM",
+    title: "Judge Deliberation",
+    description: "Judges review results while participants network and connect with sponsors.",
+    icon: Users,
+    color: "#777de2",
+  },
+  {
+    time: "2:30 PM",
+    title: "Company Keynotes",
+    description: "Hear from our sponsors and industry leaders about the future of tech.",
+    icon: Volume2,
+    color: "#b36ec1",
+  },
+  {
+    time: "3:00 PM",
+    title: "Closing Ceremony & Awards",
+    description: "Winner announcements, sponsor thank-yous, and a final group photo to conclude the event.",
+    icon: Trophy,
+    color: "#d05ead",
+  },
 ]
 
 const colorMap: Record<string, string> = {
@@ -102,43 +223,59 @@ export function AgendaPageMobile() {
           <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--cyan)] via-[var(--blue)] to-[var(--magenta)]" />
 
           <div className="flex flex-col gap-4 pl-12">
-            {events.map((event, i) => (
-              <div key={i} className="relative">
-                {/* Dot */}
-                <div
-                  className="absolute -left-[34px] w-2.5 h-2.5 rounded-full mt-4 z-10"
-                  style={{
-                    backgroundColor: colorMap[event.color],
-                    boxShadow: `0 0 10px ${colorMap[event.color]}`,
-                  }}
-                />
+            {events.map((event, i) => {
+  const resolvedColor = event.color.startsWith('#')
+    ? event.color
+    : `var(--${event.color})`;
 
-                <div className="glass-card rounded-xl p-3.5">
-                  <div className="flex items-center gap-1.5 mb-1.5">
-                    <Clock className="h-3 w-3 text-muted-foreground shrink-0" />
-                    <span
-                      className="text-xs font-mono font-semibold"
-                      style={{ color: colorMap[event.color] }}
-                    >
-                      {event.time}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div
-                      className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
-                      style={{
-                        background: `linear-gradient(135deg, color-mix(in srgb, ${colorMap[event.color]} 20%, transparent), transparent)`,
-                        border: `1px solid color-mix(in srgb, ${colorMap[event.color]} 30%, transparent)`,
-                      }}
-                    >
-                      <event.icon className="h-3.5 w-3.5" style={{ color: colorMap[event.color] }} />
-                    </div>
-                    <h4 className="text-sm font-semibold text-foreground">{event.title}</h4>
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{event.description}</p>
-                </div>
-              </div>
-            ))}
+  return (
+    <div key={i} className="relative">
+      {/* Dot */}
+      <div
+        className="absolute -left-[36px] w-2.5 h-2.5 rounded-full mt-4 z-10"
+        style={{
+          backgroundColor: resolvedColor,
+          boxShadow: `0 0 10px ${resolvedColor}`,
+        }}
+      />
+
+      <div className="glass-card rounded-xl p-3.5">
+        <div className="flex items-center gap-1.5 mb-1.5">
+          <Clock className="h-3 w-3 text-muted-foreground shrink-0" />
+          <span
+            className="text-xs font-mono font-semibold"
+            style={{ color: resolvedColor }}
+          >
+            {event.time}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2 mb-1.5">
+          <div
+            className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+            style={{
+              background: `linear-gradient(135deg, color-mix(in srgb, ${resolvedColor} 20%, transparent), transparent)`,
+              border: `1px solid color-mix(in srgb, ${resolvedColor} 30%, transparent)`,
+            }}
+          >
+            <event.icon
+              className="h-3.5 w-3.5"
+              style={{ color: resolvedColor }}
+            />
+          </div>
+
+          <h4 className="text-sm font-semibold text-foreground">
+            {event.title}
+          </h4>
+        </div>
+
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          {event.description}
+        </p>
+      </div>
+    </div>
+  );
+})}
           </div>
         </div>
       </section>
