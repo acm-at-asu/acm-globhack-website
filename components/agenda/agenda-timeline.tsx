@@ -50,7 +50,7 @@ const saturdayEvents = [
   },
   {
     time: "11:30 AM",
-    title: "Technical Workshop #1",
+    title: "Vecor AI Workshop #1",
     description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
     icon: Lightbulb,
     color: "#32a5f4",
@@ -71,7 +71,7 @@ const saturdayEvents = [
   },
   {
     time: "1:30 PM",
-    title: "Technical Workshop #3",
+    title: "Vecor AI Workshop #2",
     description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
     icon: Lightbulb,
     color: "#5780ee",
@@ -85,7 +85,7 @@ const saturdayEvents = [
   },
   {
     time: "3:30 PM",
-    title: "Coffee Break + Workshop #5",
+    title: "Coffee Break + Hydrawav3 Workshop",
     description: "Coffee break followed by a technical workshop.",
     icon: Coffee,
     color: "#9777d2",
@@ -98,7 +98,7 @@ const saturdayEvents = [
     color: "#ae70c4",
   },
   {
-    time: "11:00 PM",
+    time: "09:30 PM",
     title: "Progress Checkpoint",
     description: "Mentor check-ins and mini-pitches to get feedback.",
     icon: ClipboardCheck,
@@ -164,8 +164,8 @@ export function AgendaTimeline() {
   
   const events = activeDay === "saturday" ? saturdayEvents : sundayEvents
   const dayTitle = activeDay === "saturday" 
-    ? "Saturday, April 18 — Kickoff & Development" 
-    : "Sunday, April 19 — The Finish Line"
+    ? "Saturday, April 18 — Kickoff & Development at LSE 104" 
+    : "Sunday, April 19 — The Finish Line at ECG 150"
 
   return (
     <section className="py-20 relative">
@@ -211,7 +211,7 @@ export function AgendaTimeline() {
         </div>
 
         {/* Day title */}
-        <h3 className="text-xl sm:text-2xl font-bold text-center mb-12 text-foreground">
+        <h3 className="text-xl sm:text-2xl font-bold text-center mb-12 text-foreground ">
           {dayTitle}
         </h3>
 

@@ -44,12 +44,12 @@ const scheduleDay1 = [
   {
     time: "6:00 PM",
     title: "Dinner",
-    description: "Evening dinner break with more networking.",
+    description: "Evening dinner break with more networking. Vegetarian and vegan options available.",
     icon: Pizza,
     gradient: "from-amber-500 to-orange-500",
   },
   {
-    time: "11:00 PM",
+    time: "09:30 PM",
     title: "Progress Checkpoint",
     description: "Mentor check-ins and mini-pitches to get feedback.",
     icon: CloudLightning,
