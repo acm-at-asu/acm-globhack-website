@@ -52,6 +52,10 @@ const faqs = [
         q: "What technologies can I use?",
         a: "You can use any programming language, framework, or technology stack you prefer. We'll have mentors available to help with various technologies including web development, mobile development, AI/ML, cloud services, and more.",
       },
+      {
+        q: "How do I submit my final project for GlobeHack?",
+        a: "To submit your final project, go to the GlobeHack Devpost page and complete your submission before the deadline (April 19, 2026 at 11:00 AM MST). ",
+      },
     ],
   },
   {
