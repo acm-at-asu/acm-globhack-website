@@ -85,8 +85,8 @@ const saturdayEvents = [
   },
   {
     time: "3:30 PM",
-    title: "Coffee Break + Hydrawav3 Workshop",
-    description: "Coffee break followed by a technical workshop.",
+    title: "Coffee Break + Sponsor Workshop",
+    description: "Coffee break followed by a technical workshop. Sponsor will be announced soon!",
     icon: Coffee,
     color: "#9777d2",
   },
