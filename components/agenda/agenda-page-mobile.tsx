@@ -49,8 +49,8 @@ const saturdayEvents = [
   },
   {
     time: "11:30 AM",
-    title: "Vector AI Workshop #1",
-    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    title: "Sponsor Workshop", // Vector AI Workshop #1
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips. Sponsors will be announced soon!",
     icon: Lightbulb,
     color: "#32a5f4",
   },
@@ -63,29 +63,29 @@ const saturdayEvents = [
   },
   {
     time: "12:30 PM",
-    title: "Lofty Workshop",
-    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    title: "Sponsor Workshop", // Lofty Workshop
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips. Sponsors will be announced soon!",
     icon: Lightbulb,
     color: "#398af5",
   },
   {
     time: "1:30 PM",
-    title: "Vector AI Workshop #2",
-    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    title: "Sponsor Workshop", // Vector AI Workshop #2
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips. Sponsors will be announced soon!",
     icon: Lightbulb,
     color: "#5780ee",
   },
   {
     time: "2:30 PM",
-    title: "Trucker Workshop",
-    description: "Optional sessions covering APIs, UI/UX, and pitching tips.",
+    title: "Sponsor Workshop", // Trucker Workshop
+    description: "Optional sessions covering APIs, UI/UX, and pitching tips. Sponsors will be announced soon!",
     icon: Lightbulb,
     color: "#7a7cdf",
   },
   {
     time: "3:30 PM",
-    title: "Coffee Break + Hydrawav3 Workshop",
-    description: "Coffee break followed by a technical workshop.",
+    title: "Coffee Break + Sponsor Workshop",
+    description: "Coffee break followed by a technical workshop. Sponsors will be announced soon!",
     icon: Coffee,
     color: "#9777d2",
   },
