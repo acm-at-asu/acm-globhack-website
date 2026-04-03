@@ -4,7 +4,7 @@ import { ExternalLink, Instagram, Lock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
-const SPONSOR_REVEAL_DATE = new Date("2026-04-06T00:00:00")
+const SPONSOR_REVEAL_DATE = new Date("2026-04-04T00:00:00")
 const sponsorsRevealed = new Date() >= SPONSOR_REVEAL_DATE
 
 const sponsors = {
@@ -208,7 +208,7 @@ function SponsorCard({
                 <Lock className="h-8 w-8 text-white/85" />
               </div>
               <p className="text-sm text-white/90 font-semibold tracking-wide">
-                Revealed on April 6th
+                Revealed on April 4th
               </p>
             </div>
           </div>
