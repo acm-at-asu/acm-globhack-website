@@ -215,6 +215,25 @@ export function TracksPageMobile() {
               <p className="text-xs text-muted-foreground leading-relaxed">
                 {track.revealed ? track.description : "Revealed on April 6th"}
               </p>
+              {/* Examples */}
+                      {track.revealed && (
+                        <div className="relative space-y-3">
+                          <p className="text-xs font-semibold text-foreground uppercase tracking-wider">
+                            Who this is for:
+                          </p>
+                          <ul className="text-sm text-muted-foreground space-y-2">
+                            {track.examples.map((example, i) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <span 
+                                  className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 bg-gradient-to-r ${track.gradient}`}
+                                />
+                                {example}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+              
             </div>
           ))}
         </div>
