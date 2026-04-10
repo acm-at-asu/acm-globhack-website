@@ -368,24 +368,20 @@ export function TracksPageMobile() {
               </div>
             </section>
             {/* How it works */}
-      <section className="py-20 relative">
+      <section className="px-4 pb-10 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-[rgb(12,12,24)] to-background" />
-        <div className="orb orb-blue w-[300px] h-[300px] top-1/2 -left-32 opacity-30" />
-        <div className="orb orb-red w-[250px] h-[250px] top-1/3 -right-24 opacity-30" />
-        
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              How Track Judging Works
-            </h2>
+        <div className="relative z-10">
+          <div className="text-center mb-5">
+            <h2 className="text-lg font-bold text-foreground">How Track Judging Works</h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+
+          <div className="flex flex-col gap-3">
             {[
               {
                 step: "1",
                 title: "Build Your Project",
-                description: "Create your project during the hackathon. One project can qualify for one main track & multiple side tracks.",
+                description:
+                  "Create your project during the hackathon. One project can qualify for one main track and multiple side tracks.",
                 gradient: "from-cyan-500 to-teal-500",
                 glowColor: "rgba(34, 211, 238, 0.3)",
               },
@@ -399,34 +395,32 @@ export function TracksPageMobile() {
               {
                 step: "3",
                 title: "Get Judged",
-                description: "Judges evaluate your project for each track separately based on track-specific criteria.",
+                description:
+                  "Judges evaluate your project for each track separately based on track-specific criteria.",
                 gradient: "from-amber-500 to-yellow-500",
                 glowColor: "rgba(250, 204, 21, 0.3)",
               },
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div 
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-gradient-to-br ${item.gradient}`}
+            ].map((item,index) => (
+              <div key={index} className="glass-card rounded-2xl p-4 flex items-start gap-3">
+                <div
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-gradient-to-br ${item.gradient}`}
                   style={{ boxShadow: `0 8px 32px ${item.glowColor}` }}
                 >
-                  <span className="text-2xl font-bold text-white">
-                    {item.step}
-                  </span>
+                  <span className="text-sm font-bold text-white">{item.step}</span>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{item.title}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-5">
             <Link href="/register">
-              <Button 
-                size="lg" 
-                className="glass-button text-white px-10 py-7 rounded-2xl group"
-              >
+              <Button size="sm" className="glass-button text-white rounded-xl w-full py-5 group">
                 Register to Compete
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
