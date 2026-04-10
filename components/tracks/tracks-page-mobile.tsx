@@ -170,52 +170,81 @@ export function TracksPageMobile() {
         </div>
       </section>
 
-      {/* Tracks list */}
-      <section className="px-4 pb-8">
-        <div className="flex flex-col gap-3">
-          <h2 className="text-2xl font-bold text-foreground mb-8">
+      {/* Tracks grid */}
+            
+            <section className="py-20">
+              
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-2xl font-bold text-foreground mb-8">
                   Main Tracks
                 </h2>
-          {tracks.map((track) => (
-            <div
-              key={track.id}
-              className={`relative glass-card rounded-xl p-4 overflow-hidden ${
-                !track.revealed ? "opacity-70" : ""
-              }`}
-            >
-              {/* Badge */}
-              <div
-                className={`absolute top-3 right-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold ${track.textColor}`}
-                style={{
-                  background: track.revealed
-                    ? `linear-gradient(135deg, ${track.glowColor}, transparent)`
-                    : undefined,
-                }}
-              >
-                {track.badge}
-              </div>
-
-              <div className="flex items-center gap-3 mb-2">
-                {/* Icon */}
-                <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 bg-gradient-to-br ${track.gradient}`}
-                  style={{ boxShadow: `0 4px 16px ${track.glowColor}` }}
-                >
-                  <Image
-                    src={track.logo}
-                    alt={track.title}
-                    width={640}
-                    height={640}
-                    className="rounded-sm"
-                  />
-                </div>
-                <h3 className="text-base font-semibold text-foreground pr-12">{track.title}</h3>
-              </div>
-
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                {track.revealed ? track.description : "Revealed on April 6th"}
-              </p>
-              {/* Examples */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {tracks.map((track) => (
+                    <div 
+                      key={track.id}
+                      className={`group relative glass-card rounded-2xl p-8 transition-all duration-500 overflow-hidden ${
+                        track.revealed 
+                          ? "glass-card-hover" 
+                          : "border-dashed opacity-70"
+                      }`}
+                    >
+                      {/* Glow effect on hover */}
+                      {track.revealed && (
+                        <div 
+                          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                          style={{
+                            background: `radial-gradient(circle at 50% 0%, ${track.glowColor}, transparent 60%)`,
+                          }}
+                        />
+                      )}
+      
+                      {/* Track status badge */}
+                      <div 
+                        className={`absolute top-6 right-6 px-4 py-1.5 rounded-full text-xs font-bold ${
+                          track.revealed 
+                            ? `bg-gradient-to-r ${track.gradient} bg-opacity-20 ${track.textColor}` 
+                            : "bg-secondary text-muted-foreground"
+                        }`}
+                        style={{ 
+                          background: track.revealed 
+                            ? `linear-gradient(135deg, ${track.glowColor}, transparent)`
+                            : undefined,
+                        }}
+                      >
+                        {track.badge}
+                      </div>
+      
+                      {/* Icon */}
+                      <div 
+                        className={`relative w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 bg-gradient-to-br ${track.gradient} ${
+                          !track.revealed && "animate-pulse"
+                        }`}
+                        style={{
+                          boxShadow: `0 8px 32px ${track.glowColor}`,
+                        }}
+                      >
+                        <Image
+                          src={track.logo}
+                          alt={track.title}
+                          width={640}
+                          height={640}
+                          className=" rounded-sm"
+                        />
+                      </div>
+      
+                      {/* Title */}
+                      <h3 className="relative text-xl font-semibold text-foreground mb-3">
+                        {track.title}
+                      </h3>
+      
+                      {/* Description */}
+                      <p className={`relative text-sm leading-relaxed mb-6 ${
+                        track.revealed ? "text-muted-foreground" : "text-muted-foreground/50 italic"
+                      }`}>
+                        {track.description}
+                      </p>
+      
+                      {/* Examples */}
                       {track.revealed && (
                         <div className="relative space-y-3">
                           <p className="text-xs font-semibold text-foreground uppercase tracking-wider">
@@ -233,11 +262,25 @@ export function TracksPageMobile() {
                           </ul>
                         </div>
                       )}
-              
-            </div>
-          ))}
-        </div>
-      </section>
+      
+                      {/* Unrevealed overlay */}
+                      {!track.revealed && (
+                        <div className="absolute inset-0 glass-panel rounded-2xl flex items-center justify-center">
+                          <div className="text-center p-6">
+                            <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mx-auto mb-4">
+                              <Lock className="h-8 w-8 text-muted-foreground" />
+                            </div>
+                            <p className="text-sm text-muted-foreground font-medium">
+                              Revealed on April 6th
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
 
       
       {/* Side Tracks */}
@@ -325,53 +368,71 @@ export function TracksPageMobile() {
               </div>
             </section>
             {/* How it works */}
-      <section className="px-4 pb-12">
-        <div className="glass-panel rounded-2xl p-5 border border-white/5">
-          <h2 className="text-base font-bold text-foreground mb-4 text-center">
-            How Track Judging Works
-          </h2>
-          <div className="flex flex-col gap-3">
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-[rgb(12,12,24)] to-background" />
+        <div className="orb orb-blue w-[300px] h-[300px] top-1/2 -left-32 opacity-30" />
+        <div className="orb orb-red w-[250px] h-[250px] top-1/3 -right-24 opacity-30" />
+        
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              How Track Judging Works
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
                 step: "1",
                 title: "Build Your Project",
-                desc: "One project can qualify for multiple tracks.",
+                description: "Create your project during the hackathon. One project can qualify for one main track & multiple side tracks.",
                 gradient: "from-cyan-500 to-teal-500",
+                glowColor: "rgba(34, 211, 238, 0.3)",
               },
               {
                 step: "2",
                 title: "Submit & Tag",
-                desc: "Select all applicable tracks on Devpost.",
+                description: "When submitting on Devpost, select all tracks your project applies to.",
                 gradient: "from-blue-500 to-indigo-500",
+                glowColor: "rgba(59, 130, 246, 0.3)",
               },
               {
                 step: "3",
                 title: "Get Judged",
-                desc: "Judges evaluate per track with separate criteria.",
+                description: "Judges evaluate your project for each track separately based on track-specific criteria.",
                 gradient: "from-amber-500 to-yellow-500",
+                glowColor: "rgba(250, 204, 21, 0.3)",
               },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div
-                  className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-gradient-to-br ${item.gradient}`}
+            ].map((item, index) => (
+              <div key={index} className="text-center">
+                <div 
+                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 bg-gradient-to-br ${item.gradient}`}
+                  style={{ boxShadow: `0 8px 32px ${item.glowColor}` }}
                 >
-                  <span className="text-sm font-bold text-white">{item.step}</span>
+                  <span className="text-2xl font-bold text-white">
+                    {item.step}
+                  </span>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                  <p className="text-xs text-muted-foreground">{item.desc}</p>
-                </div>
+                <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
             ))}
           </div>
-          <Link href="/register" className="block mt-5">
-            <Button size="sm" className="glass-button text-white rounded-xl w-full py-5 group">
-              Register to Compete
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
+
+          <div className="text-center">
+            <Link href="/register">
+              <Button 
+                size="lg" 
+                className="glass-button text-white px-10 py-7 rounded-2xl group"
+              >
+                Register to Compete
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
+
       
     </main>
   )
