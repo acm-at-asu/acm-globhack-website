@@ -29,7 +29,7 @@ const amenities = [
 const eligibility = [
   "Must be 18 years or older",
   "Open to students and professionals",
-  "Teams of 1-4 members",
+  "Teams of 1-5 members",
   "Must attend in-person",
   "All skill levels welcome",
   "Valid ID required",
