@@ -23,6 +23,13 @@ const sponsors = {
       description: "Red Bull is supporting Globehack as a drink sponsor to help keep participants energized throughout the event.",
       website: "https://www.redbull.com",
     },
+    {
+      name: "Syncron",
+      logo: "S",
+      logoPath: "/images/syncron.jpg",
+      description: "Syncron is supporting Globehack as a drink sponsor to help keep participants energized throughout the event.",
+      website: "https://livesyncron.com",
+    },
   ],
   gold: [
     {
