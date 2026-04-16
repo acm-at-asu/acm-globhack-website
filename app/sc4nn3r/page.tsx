@@ -221,7 +221,7 @@ export default function ScannerPage() {
           {/* CHECK-IN STATUS */}
           {checkedIn !== null && (
             <p className="text-green-600 font-semibold">
-              {checkedIn ? "User-checked in" : "User not checked in"}
+              {checkedIn ? <p className="text-green-600 font-semibold">User checked in</p> : <p className="text-red-400 font-semibold">User not checked in</p>}
             </p>
           )}
 
@@ -236,8 +236,8 @@ export default function ScannerPage() {
                 disabled={locked}
                 className="
                   mt-3 w-full py-2 rounded-xl text-white font-semibold
-                  bg-sky-500 shadow-lg shadow-sky-400/60
-                  hover:bg-sky-600 transition
+                  bg-amber-500 shadow-lg shadow-amber-400/60
+                  hover:bg-amber-600 transition
                   disabled:opacity-50 disabled:cursor-not-allowed
                 "
               >
