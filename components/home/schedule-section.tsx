@@ -80,7 +80,7 @@ const scheduleDay2 = [
     gradient: "from-red-500 to-rose-500",
   },
   {
-    time: "12:00 AM",
+    time: "12:00 PM",
     title: "Presentations & Judging Begins",
     description: "Present your project to judges in 3-minute elevator pitches.",
     icon: Users,
